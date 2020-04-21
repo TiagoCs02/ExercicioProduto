@@ -1,0 +1,45 @@
+.botoes{
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    
+}
+.nav-link{
+    color: orange;
+    background-color: white; 
+    font-weight: bold;
+    
+}
+.carrosel
+{
+
+    text-align: center;
+    
+   
+}
+.carroselCentro{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.d-block{
+    height: 350px;
+}
+.nav-pills .show>.nav-link {
+    color: orange;
+    background-color: white;
+}
+#mysearch:focus + .input-group-addon {
+	z-index: 10;
+}
+
+#search-btn:hover {
+	cursor: pointer;
+	background-color: white;
+}
+.produtos{
+    width: '100%';
+    margin-left: 5%;
+    margin-right: 5%;
+
+}

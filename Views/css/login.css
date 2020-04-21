@@ -1,0 +1,64 @@
+.cabecalho{
+    color:black;
+    background-color: white;
+    width: 100%;
+}
+.nome{
+    font-size: 16px;
+    margin: 3px auto;
+}
+.senha{
+    size: 14px;
+    margin: 3px auto;
+
+}
+.col-4 {
+    top :5%;
+    text-align: center;
+    color: white;
+    margin-top: 3%;
+    margin: 4px auto;
+    background-color: rgb(255, 166, 0);
+    border:none;
+}
+.row{
+    margin-top:20px;
+    
+}
+.navbar-dark-bg-dark{
+    color: white;
+    height: 210px;
+    font-size: 8px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+.card-body{
+   height: 300px;
+   margin: 2px auto;
+}
+.fim{
+    margin-top: -36px;
+    margin-left: 144px;
+    color: black;
+    font-size: 12px;
+    display: block;
+}
+.esqueci{
+    margin-top: -2px;
+    margin-left: 144px;
+    font-size: 12px;
+}
+.form-control{
+    background-color: #DBDBDB;
+}
+.card{
+    border-radius: 15px;
+}
+.form-group{
+    margin: 0px 0px 2px;
+}
+#esqsenha{
+    margin: 4px 0px 8px;
+}
+
+
