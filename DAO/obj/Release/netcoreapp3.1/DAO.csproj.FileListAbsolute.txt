@@ -21,3 +21,4 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\obj\Release\netcoreapp3.1\DAO.c
 C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\obj\Release\netcoreapp3.1\DAO.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\obj\Release\netcoreapp3.1\DAO.pdb
 C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\obj\Release\netcoreapp3.1\DAO.genruntimeconfig.cache
+C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\bin\Release\netcoreapp3.1\Npgsql.dll

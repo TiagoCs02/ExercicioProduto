@@ -107,3 +107,4 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\API\bin\Debug\netcoreapp3.1\Models.
 C:\Users\ADMIN\source\repos\ExercicioProduto\API\bin\Debug\netcoreapp3.1\BL.pdb
 C:\Users\ADMIN\source\repos\ExercicioProduto\API\bin\Debug\netcoreapp3.1\Models.pdb
 C:\Users\ADMIN\source\repos\ExercicioProduto\API\bin\Debug\netcoreapp3.1\DAO.pdb
+C:\Users\ADMIN\source\repos\ExercicioProduto\API\bin\Debug\netcoreapp3.1\Npgsql.dll

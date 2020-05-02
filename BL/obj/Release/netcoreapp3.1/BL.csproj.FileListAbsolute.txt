@@ -24,3 +24,4 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\BL\obj\Release\netcoreapp3.1\BL.csp
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\obj\Release\netcoreapp3.1\BL.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\obj\Release\netcoreapp3.1\BL.pdb
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\obj\Release\netcoreapp3.1\BL.genruntimeconfig.cache
+C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Release\netcoreapp3.1\Npgsql.dll

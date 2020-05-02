@@ -107,3 +107,4 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\API\obj\Release\netcoreapp3.1\stati
 C:\Users\ADMIN\source\repos\ExercicioProduto\API\obj\Release\netcoreapp3.1\API.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\API\obj\Release\netcoreapp3.1\API.pdb
 C:\Users\ADMIN\source\repos\ExercicioProduto\API\obj\Release\netcoreapp3.1\API.genruntimeconfig.cache
+C:\Users\ADMIN\source\repos\ExercicioProduto\API\bin\Release\netcoreapp3.1\Npgsql.dll
