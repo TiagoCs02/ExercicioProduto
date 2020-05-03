@@ -11,6 +11,7 @@ namespace Models
 		public String senha { get; set; }
 		public String nome { get; set; }
 		public String sobrenome { get; set; }
+		public String nomeCompleto { get; set; }
 		public String sexo { get; set; }
 		public String cpf { get; set; }
 		public String telefone { get; set; }
@@ -22,6 +23,8 @@ namespace Models
 		public String numero { get; set; }
 		public String cidade { get; set; }
 		public String complemento { get; set; }
+		public String endereco { get; set; }
+		public int tipo { get; set; }
 		//private List<Role> permissoes
 
 	}
