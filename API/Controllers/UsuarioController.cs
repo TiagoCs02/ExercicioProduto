@@ -24,27 +24,47 @@ namespace API.Controllers
 
         // GET: api/Usuario/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public Usuario Get(int id)
         {
-            return "value";
+            UsuarioBL userBl = new UsuarioBL();
+            Usuario usuario = userBl.getUsuario(id);
+            return usuario;
         }
 
         // POST: api/Usuario
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Post([FromBody] Usuario usuario)
         {
+            UsuarioBL userBl = new UsuarioBL();
+            if (userBl.insertUsuario(usuario))
+            {
+                return "Usuario cadastrado";
+            }
+            return "Falha ao cadastrar usuario"; 
         }
 
         // PUT: api/Usuario/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public string Put(int id, [FromBody] Usuario usuario)
         {
+            UsuarioBL userBl = new UsuarioBL();
+            if (userBl.updateUsuario(id,usuario))
+            {
+                return "Usuario atualizado";
+            }
+            return "Falha ao atualizar usuario";
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public string Delete(int id)
         {
+            UsuarioBL userBl = new UsuarioBL();
+            if (userBl.deleteUsuario(id))
+            {
+                return "Usuario deletado";
+            }
+            return "Falha ao deletar usuario";
         }
     }
 }
