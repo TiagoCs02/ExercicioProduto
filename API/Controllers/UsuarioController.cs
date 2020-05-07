@@ -33,7 +33,7 @@ namespace API.Controllers
 
         // POST: api/Usuario
         [HttpPost]
-        public string Post([FromBody] Usuario usuario)
+        public string Post([FromForm] Usuario usuario)
         {
             UsuarioBL userBl = new UsuarioBL();
             if (userBl.insertUsuario(usuario))

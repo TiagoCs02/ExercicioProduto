@@ -10,4 +10,3 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\Models\obj\Debug\netcoreapp3.1\Mode
 C:\Users\ADMIN\source\repos\ExercicioProduto\Models\obj\Debug\netcoreapp3.1\Models.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\Models\obj\Debug\netcoreapp3.1\Models.pdb
 C:\Users\ADMIN\source\repos\ExercicioProduto\Models\obj\Debug\netcoreapp3.1\Models.genruntimeconfig.cache
-C:\Users\ADMIN\source\repos\ExercicioProduto\Models\obj\Debug\netcoreapp3.1\Models.csprojAssemblyReference.cache

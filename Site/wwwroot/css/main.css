@@ -1,0 +1,35 @@
+.col-style{
+    background-color: dimgray;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.ex-cor-1{
+    background-color: red;
+}
+
+.ex-cor-2{
+    background-color:yellow;
+}
+
+#navbar_login{
+    background-color:crimson;
+}
+
+#login_button{
+    background-color: crimson;
+    border-color: crimson;
+}
+#login_button:hover{
+    background-color: darkred;
+    border-color: darkred;
+}
+.produto{
+		width: 220px;
+}
+@media (min-width: 0px) and (max-width: 576px){
+	.produto{
+		width: 150px;
+		height: auto;
+	}
+}

@@ -8,6 +8,7 @@ namespace Models
     {
         public int IdProduto { get; set; }
         public string Nome { get; set; }
+        public string Descrição { get; set; }
         public string Artista { get; set; }
         public string Categoria { get; set; }
         public decimal Valor { get; set; }
