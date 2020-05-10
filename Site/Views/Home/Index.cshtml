@@ -49,10 +49,23 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html" tabindex="-1">
-                        <i class="fa fa-user" aria-hidden="strue"></i>
-                        Login
-                    </a>
+                    @{
+                        if (ViewBag.Nome != null && ViewBag.Login == 1)
+                        {
+                            <a class="nav-link" asp-controller="Login" asp-action="Logout" tabindex="-1">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                @ViewBag.Nome
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="nav-link" asp-controller="Login" asp-action="Index" tabindex="-1">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                Login
+                            </a>
+                        }
+                    }
+
                 </li>
             </ul>
         </div>
@@ -71,9 +84,13 @@
         <a class="nav-link-submenu" href="#">
             <i class="fas fa-record-vinyl"></i> Produtos
         </a>
-        <a class="nav-link-submenu" href="#">
-            <i class="fa fa-truck" aria-hidden="true"></i> Meus Pedidos
-        </a>
+        @{ 
+            if (ViewBag.Login == 1) {
+                <a class="nav-link-submenu" href="#">
+                    <i class="fa fa-truck" aria-hidden="true"></i> Meus Pedidos
+                </a>
+            }
+        }
         <a class="nav-link-submenu" href="#">
             <i class="fa fa-phone-square" aria-hidden="true"></i> Contatos
         </a>
@@ -153,23 +170,24 @@
         <h1 class="text-center" id="titulo"><b>Os Mais Vendidos</b></h1>
         <!--Destaques discos-->
         <div class="row">
-            @foreach (Models.Produto prod in Model)
-            {
-                <div class="col-md-6 col-lg-3 col-xs-12 div_produto ">
-                    <a href="descricao.html" style="color: black;">
-                        <h4 class="text-center" style="color: #771ED2; ">@prod.Nome</h4>
-                        <img src="~/img/destaque3.jpg" class="rounded mx-auto d-block" width="250" alt="..."></img>
-                        <div class="div_produto1">
-                            <h4 class="text-center" style="color: #ff6914;">@prod.Valor</h4>
-                            <b>@prod.Artista</b>
-                            <label>Descrição do Produto</label>
-                        </div>
-                    </a>
-                </div>
+            @{ foreach (Models.Produto prod in Model)
+               {
+                    <div class="col-md-6 col-lg-3 col-xs-12 div_produto ">
+                        <a asp-controller="Produto" asp-action="Descricao" asp-route-id="@prod.IdProduto" style="color: black;">
+                            <h4 class="text-center" style="color: #771ED2; ">@prod.Nome</h4>
+                            <img src="~/img/destaque3.jpg" class="rounded mx-auto d-block" width="250" alt="..."></img>
+                            <div class="div_produto1">
+                                <h4 class="text-center" style="color: #ff6914;">R$@prod.Valor</h4>
+                                <b>@prod.Artista</b>
+                                <label>Descrição do Produto</label>
+                            </div>
+                        </a>
+                   </div>
+               } 
             }
 
 
-       
+
             <!--
 
         <div class="col-md-6 col-lg-3 col-xs-12 div_produto ">

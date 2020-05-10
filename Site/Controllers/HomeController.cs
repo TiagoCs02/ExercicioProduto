@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Models;
@@ -23,6 +24,8 @@ namespace Site.Controllers
 
         public async Task<IActionResult> IndexAsync()
         {
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+            ViewBag.Nome = HttpContext.Session.GetString("_Nome");
             List<Produto> produto = new List<Produto>();
             using(var httpClient = new HttpClient())
             {
@@ -38,10 +41,6 @@ namespace Site.Controllers
         }
 
         public IActionResult Privacy()
-        {
-            return View();
-        }
-        public IActionResult Login()
         {
             return View();
         }

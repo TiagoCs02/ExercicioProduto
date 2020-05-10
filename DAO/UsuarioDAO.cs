@@ -102,7 +102,6 @@ namespace DAO
                     {
                         usuario.IdUsuario = (int)rdr["idUsuario"];
                         usuario.email = rdr["email"].ToString();
-                        usuario.senha = rdr["senha"].ToString();
                         usuario.nome = rdr["nome"].ToString();
                         usuario.sobrenome = rdr["sobrenome"].ToString();
 

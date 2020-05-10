@@ -9,7 +9,7 @@ namespace BL
     public class LoginBL
     {
         LoginDAO loginDAO;
-        public bool validaLogin(Usuario usuario)
+        public int validaLogin(Usuario usuario)
         {
             loginDAO = new LoginDAO();
             return loginDAO.verificaLogin(usuario);

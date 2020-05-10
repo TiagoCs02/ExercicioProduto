@@ -31,12 +31,10 @@ namespace API.Controllers
 
         // POST: api/Login
         [HttpPost]
-        public void Post([FromForm] Usuario usuario)
+        public int Post(Usuario usuario)
         {
             LoginBL loginBl = new LoginBL();
-            if (loginBl.validaLogin(usuario))
-            {
-            }
+            return loginBl.validaLogin(usuario);
         }
 
         // PUT: api/Login/5

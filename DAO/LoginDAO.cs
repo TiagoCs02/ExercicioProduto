@@ -11,9 +11,9 @@ namespace DAO
     public class LoginDAO
     {
         string connectionString = "Server=localhost;Port=5432;Database=projeto;User Id=postgres;Password=postgresql;";
-        public bool verificaLogin(Usuario usuario)
+        public int verificaLogin(Usuario usuario)
         {
-            bool retorno = false;
+            int retorno = 0;
             using (NpgsqlConnection con = new NpgsqlConnection(connectionString))
             {
                 string comandoSQL = "Select * from cadastrousuario";
@@ -33,6 +33,7 @@ namespace DAO
 
                         login.email = rdr["email"].ToString();
                         login.senha = rdr["senha"].ToString();
+                        login.IdUsuario = (int)rdr["idusuario"];
 
                         usuarios.Add(login);
                     }
@@ -40,7 +41,7 @@ namespace DAO
                     {
                         if(login.email == usuario.email && login.senha == usuario.senha)
                         {
-                            retorno = true;
+                            retorno = login.IdUsuario;
                         }
                     }
                 }
