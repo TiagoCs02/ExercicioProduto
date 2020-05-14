@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Models;
 using BL;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,37 +16,33 @@ namespace API.Controllers
     {
         // GET: api/Usuario
         [HttpGet]
-        public IEnumerable<Usuario> Get()
+        public IEnumerable<Cadastrousuario> Get()
         {
             UsuarioBL userBl = new UsuarioBL();
-            List<Usuario> usuarioList = userBl.getUsuarios();
+            List<Cadastrousuario> usuarioList = userBl.getUsuarios();
             return usuarioList;
         }
 
         // GET: api/Usuario/5
         [HttpGet("{id}", Name = "Get")]
-        public Usuario Get(int id)
+        public Cadastrousuario Get(int id)
         {
             UsuarioBL userBl = new UsuarioBL();
-            Usuario usuario = userBl.getUsuario(id);
+            Cadastrousuario usuario = userBl.getUsuario(id);
             return usuario;
         }
 
         // POST: api/Usuario
         [HttpPost]
-        public string Post([FromForm] Usuario usuario)
+        public bool Post(Cadastrousuario usuario)
         {
             UsuarioBL userBl = new UsuarioBL();
-            if (userBl.insertUsuario(usuario))
-            {
-                return "Usuario cadastrado";
-            }
-            return "Falha ao cadastrar usuario"; 
+            return userBl.insertUsuario(usuario); 
         }
 
         // PUT: api/Usuario/5
         [HttpPut("{id}")]
-        public string Put(int id, [FromBody] Usuario usuario)
+        public string Put(int id, [FromBody] Cadastrousuario usuario)
         {
             UsuarioBL userBl = new UsuarioBL();
             if (userBl.updateUsuario(id,usuario))

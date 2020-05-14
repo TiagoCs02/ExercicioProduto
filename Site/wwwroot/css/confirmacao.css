@@ -1,0 +1,82 @@
+tbody img {
+    width: 40px;
+}
+
+.bg-orange {
+    background-color: #ff6914;
+}
+.titulo_lista {
+    color: #771ed2;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+ .btn-secondary{
+	font-size: 16px;
+    color: #771ed2;
+    background-color: white;
+    border-color: 2px solid #771ed2;
+ }
+ .btn-secondary:hover{
+    font-size: 16px;
+    color: white;
+    background-color: #771ed2;
+    border-color: white;
+} 
+.btn-primary{
+    font-size: 16px;
+    border-color: white;
+    background-color: #ff6914;
+    
+}
+.btn-primary:hover{
+    font-size: 16px;
+    border-color: #ff6914;
+    background-color: white;
+    color: #ff6914;
+}
+.footer {
+    margin-top: 5%;
+    padding: 10px 15px;
+    grid-area: foot;
+    position: relative;
+    bottom: 0px;
+    height: 75px;
+    width: 100%;
+    background-color: #ff6914;
+    color: white;
+    text-align: center;
+ }
+
+ .footer .row {
+     margin-top: 20px;
+ }
+
+ .footer i {
+     margin-right: 5px;
+ }
+
+ .footer a {
+    text-decoration: none;
+ }
+ .fa-check-circle{
+     color: white;
+ }
+ .dados{
+     margin-top: 50px;
+    
+     }
+.text{
+    margin-top: 20px;
+    border-top: 1px solid silver;
+    }
+.editar{
+    text-align: end;
+    display: inherit;
+    font-size: 14px;
+    color: silver;
+    margin-top: -17px;
+}
+
+ .botao1{
+     margin-top: 4%;
+ }

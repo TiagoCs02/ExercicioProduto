@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using API.Models;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,9 +10,9 @@ namespace DAO
     public class ProdutoDAO
     {
         string connectionString = "Server=DESKTOP-IKUEHMR;Database=Projeto;Integrated Security=true;";
-        public List<Produto> getProdutos()
+        public List<Cadastroproduto> getProdutos()
         {
-            List<Produto> produtoList = new List<Produto>();
+            List<Cadastroproduto> produtoList = new List<Cadastroproduto>();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string comandoSQL = "Select * from Produto";
@@ -25,9 +26,9 @@ namespace DAO
 
                     while (rdr.Read())
                     {
-                        Produto produto = new Produto();
+                        Cadastroproduto produto = new Cadastroproduto();
 
-                        produto.IdProduto = (int)rdr["idproduto"];
+                        produto.Idproduto = (int)rdr["idproduto"];
                         produto.Nome = rdr["nome"].ToString();
                         produto.Artista = rdr["artista"].ToString();
                         produto.Categoria = rdr["categoria"].ToString();
@@ -48,9 +49,9 @@ namespace DAO
             }
             return produtoList;
         }
-        public Produto getProduto(int id)
+        public Cadastroproduto getProduto(int id)
         {
-            Produto produto = new Produto();
+            Cadastroproduto produto = new Cadastroproduto();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string comandoSQL = "Select * from Produto where idProduto = @id";
@@ -67,7 +68,7 @@ namespace DAO
                     while (rdr.Read())
                     {
 
-                        produto.IdProduto = (int)rdr["idproduto"];
+                        produto.Idproduto = (int)rdr["idproduto"];
                         produto.Nome = rdr["nome"].ToString();
                         produto.Artista = rdr["artista"].ToString();
                         produto.Categoria = rdr["categoria"].ToString();
@@ -87,7 +88,7 @@ namespace DAO
             }
             return produto;
         }
-        public bool updateProduto(int id,Produto produto)
+        public bool updateProduto(int id,Cadastroproduto produto)
         {
             bool retorno = false;
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -120,7 +121,7 @@ namespace DAO
             }
             return retorno;
         }
-        public bool insertProduto(Produto produto)
+        public bool insertProduto(Cadastroproduto produto)
         {
             bool retorno = false;
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -129,7 +130,7 @@ namespace DAO
                 SqlCommand comando = new SqlCommand(comandoSQL, con);
                 comando.CommandType = CommandType.Text;
 
-                comando.Parameters.AddWithValue("@id", produto.IdProduto);
+                comando.Parameters.AddWithValue("@id", produto.Idproduto);
                 comando.Parameters.AddWithValue("@nome", produto.Nome);
                 comando.Parameters.AddWithValue("@artista", produto.Artista);
                 comando.Parameters.AddWithValue("@categoria", produto.Categoria);

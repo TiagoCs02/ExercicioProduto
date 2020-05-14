@@ -114,5 +114,7 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\Site\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\ADMIN\source\repos\ExercicioProduto\Site\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
 C:\Users\ADMIN\source\repos\ExercicioProduto\Site\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\Site\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\ADMIN\source\repos\ExercicioProduto\Site\obj\Debug\netcoreapp3.1\Razor\Views\Login\cadUsuario.cshtml.g.cs
+C:\Users\ADMIN\source\repos\ExercicioProduto\Site\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Site.cshtml.g.cs
 C:\Users\ADMIN\source\repos\ExercicioProduto\Site\obj\Debug\netcoreapp3.1\Site.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\source\repos\ExercicioProduto\Site\obj\Debug\netcoreapp3.1\Site.MvcApplicationPartsAssemblyInfo.cache

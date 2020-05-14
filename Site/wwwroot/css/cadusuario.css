@@ -3,7 +3,6 @@
     flex-direction: row;
     align-items: center;
 }
-
 .d-block{
     height: 350px;
 }
@@ -28,14 +27,13 @@
     background-color: #ff6914;
 }
 
-.bg-orange .dropdown-menu {
-    background-color: #ff6914;
-}
 .footer {
-    grid-area:foot;
-	position: relative;
+    margin-top: 5%;
+    padding: 10px 15px;
+    grid-area: foot;
+    position: relative;
     bottom: 0px;
-    height: 45px;
+    height: 75px;
     width: 100%;
     background-color: #ff6914;
     color: white;
@@ -55,30 +53,61 @@
     color: #771ed2;
     text-decoration: none;
  }
- .btn-success{
+ 
+.nav-link-submenu{
+    display: block;
+    font-size: 14px;
+    padding: 3px;
+    border-radius: 0;
+    background: #fff;
+    margin: 0 5px;
+    color: #666;
+    position: relative;
+    overflow: hidden;
+    transition: all .4s ease;
+    box-sizing: border-box;
+    line-height: 1.3;
+    z-index: 1
+   
+}
+.btn-secondary{
+	font-size: 14px;
+    color: #771ed2;
+    background-color: white;
+    border-color: 2px solid #771ed2;
+ }
+ .btn-secondary:hover{
+    font-size: 14px;
     color: white;
-   font-size: 16px;
-   border-color: white;
-   background-color: #ff6914;
-}   
-
-.btn-success:hover{
-   font-size: 16px;
-   border-color: #ff6914;
-   background-color: white;
-   color: #ff6914;
+    background-color: #771ed2;
+    border-color: white;
+} 
+.btn-primary{
+    font-size: 14px;
+    border-color: white;
+    background-color: #ff6914;
+    
 }
-.btn1{
-   font-size: 16px;
-   color: #771ed2;
-   background-color: white;
-   border-color: 2px solid #771ed2;
-
-
+.btn-primary:hover{
+    font-size: 14px;
+    border-color: #ff6914;
+    background-color: white;
+    color: #ff6914;
 }
-.btn1:hover{
-   font-size: 16px;
-   color: white;
-   background-color: #771ed2;
-   border-color: 2px solid #771ed2;
+.titulo_lista {
+    color: #771ed2;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid silver;
+}
+.row{
+    margin-top: 0%;
+}
+
+.col-xs-12{
+    margin-top: 2%;
+}
+.botao{
+    margin-top: 4%;
 }

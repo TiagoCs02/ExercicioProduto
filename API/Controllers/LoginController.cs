@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using API.Models;
 using BL;
+using Context;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +17,12 @@ namespace API.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        private ApiContext _context;
+
+        public LoginController(ApiContext context)
+        {
+            _context = context;
+        }
         // GET: api/Login
         [HttpGet]
         public IEnumerable<string> Get()
@@ -31,9 +39,9 @@ namespace API.Controllers
 
         // POST: api/Login
         [HttpPost]
-        public int Post(Usuario usuario)
+        public int Post(Cadastrousuario usuario)
         {
-            LoginBL loginBl = new LoginBL();
+            LoginBL loginBl = new LoginBL(_context);
             return loginBl.validaLogin(usuario);
         }
 

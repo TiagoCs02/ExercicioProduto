@@ -5,13 +5,14 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Data;
 using Models;
+using API.Models;
 
 namespace DAO
 {
     public class LoginDAO
     {
         string connectionString = "Server=localhost;Port=5432;Database=projeto;User Id=postgres;Password=postgresql;";
-        public int verificaLogin(Usuario usuario)
+        public int verificaLogin(Cadastrousuario usuario)
         {
             int retorno = 0;
             using (NpgsqlConnection con = new NpgsqlConnection(connectionString))
@@ -22,26 +23,26 @@ namespace DAO
 
                 try
                 {
-                    List<Usuario> usuarios = new List<Usuario>();
+                    List<Cadastrousuario> usuarios = new List<Cadastrousuario>();
 
                     con.Open();
                     NpgsqlDataReader rdr = comando.ExecuteReader();
 
                     while (rdr.Read())
                     {
-                        Usuario login = new Usuario();
+                        Cadastrousuario login = new Cadastrousuario();
 
-                        login.email = rdr["email"].ToString();
-                        login.senha = rdr["senha"].ToString();
-                        login.IdUsuario = (int)rdr["idusuario"];
+                        login.Email = rdr["email"].ToString();
+                        login.Senha = rdr["senha"].ToString();
+                        login.Idusuario = (int)rdr["idusuario"];
 
                         usuarios.Add(login);
                     }
-                    foreach (Usuario login in usuarios)
+                    foreach (Cadastrousuario login in usuarios)
                     {
-                        if(login.email == usuario.email && login.senha == usuario.senha)
+                        if(login.Email == usuario.Email && login.Senha == usuario.Senha)
                         {
-                            retorno = login.IdUsuario;
+                            retorno = login.Idusuario;
                         }
                     }
                 }

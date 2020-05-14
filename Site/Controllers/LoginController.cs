@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Threading.Tasks;
+using API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -19,7 +20,7 @@ namespace Site.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> LoginAsync([FromForm]Usuario usuario)
+        public async Task<IActionResult> LoginAsync([FromForm]Cadastrousuario usuario)
         {
             using (var httpClient = new HttpClient())
             {
@@ -31,10 +32,10 @@ namespace Site.Controllers
                     {
                         using (var responseUser = await httpClient.GetAsync("https://localhost:44308/api/usuario/" + respostaAPI))
                         {
-                            Usuario usuarioGet = new Usuario();
+                            Cadastrousuario usuarioGet = new Cadastrousuario();
                             string respostaAPIUser = await responseUser.Content.ReadAsStringAsync();
-                            usuarioGet = JsonConvert.DeserializeObject<Usuario>(respostaAPIUser);
-                            HttpContext.Session.SetString("_Nome", usuarioGet.nome);
+                            usuarioGet = JsonConvert.DeserializeObject<Cadastrousuario>(respostaAPIUser);
+                            HttpContext.Session.SetString("_Nome", usuarioGet.Nome);
                         }
 
                             HttpContext.Session.SetInt32("_Login", 1);
@@ -51,6 +52,29 @@ namespace Site.Controllers
             HttpContext.Session.Remove("_Nome");
             HttpContext.Session.Remove("_Login");
             return RedirectToAction("Index", "Home");
+        }
+        public IActionResult cadUsuario()
+        {
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+            ViewBag.Nome = HttpContext.Session.GetString("_Nome");
+            return View();
+        }
+        public async Task<IActionResult> CadastroAsync([FromForm] Cadastrousuario usuario)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                using (var responseLogin = await httpClient.PostAsync("https://localhost:44308/api/usuario/", usuario, new JsonMediaTypeFormatter()))
+                {
+
+                    string respostaAPI = await responseLogin.Content.ReadAsStringAsync();
+                    if (respostaAPI == "true")
+                    {
+                        return RedirectToAction("Index", "Login");
+                    }
+
+                }
+            }
+            return RedirectToAction("cadUsuario");
         }
     }
 }

@@ -4,15 +4,16 @@ using System.Text;
 using Models;
 using Npgsql;
 using System.Data;
+using API.Models;
 
 namespace DAO
 {
     public class UsuarioDAO
     {
         string connectionString = "Server=localhost;Port=5432;Database=projeto;User Id=postgres;Password=postgresql;";
-        public List<Usuario> getUsuarios()
+        public List<Cadastrousuario> getUsuarios()
         {
-            List<Usuario> usuarioList = new List<Usuario>();
+            List<Cadastrousuario> usuarioList = new List<Cadastrousuario>();
             using (NpgsqlConnection con = new NpgsqlConnection(connectionString))
             {
                 string comandoSQL = "Select * from CadastroUsuario";
@@ -26,47 +27,24 @@ namespace DAO
 
                     while (rdr.Read())
                     {
-                        Usuario usuario = new Usuario();
-                        usuario.IdUsuario = (int)rdr["idUsuario"];
-                        usuario.email = rdr["email"].ToString();
-                        usuario.senha = rdr["senha"].ToString();
-                        usuario.nome = rdr["nome"].ToString();
-                        usuario.sobrenome = rdr["sobrenome"].ToString();
-
-                        StringBuilder nomeCompl = new StringBuilder();
-                        nomeCompl.Append(usuario.nome);
-                        nomeCompl.Append(" ");
-                        nomeCompl.Append(usuario.sobrenome);
-
-                        usuario.nomeCompleto = nomeCompl.ToString();
-                        usuario.sexo = rdr["sexo"].ToString();
-                        usuario.cpf = rdr["cpf"].ToString();
-                        usuario.telefone = rdr["telefone"].ToString();
-                        usuario.celular = rdr["celular"].ToString();
-                        usuario.cep = rdr["cep"].ToString();
-                        usuario.datanasc = rdr["datanasc"].ToString();
-                        usuario.uf = rdr["uf"].ToString();
-                        usuario.logradouro = rdr["logradouro"].ToString();
-                        usuario.numero = rdr["numero"].ToString();
-                        usuario.cidade = rdr["cidade"].ToString();
-                        usuario.complemento = rdr["complemento"].ToString();
-
-                        StringBuilder endereco = new StringBuilder();
-                        endereco.Append(usuario.logradouro);
-                        endereco.Append(", ");
-                        endereco.Append(usuario.numero);
-                        endereco.Append(", ");
-                        if(usuario.complemento != "")
-                        {
-                            endereco.Append(usuario.complemento);
-                            endereco.Append(", ");
-                        }
-                        endereco.Append(usuario.cidade);
-                        endereco.Append("-");
-                        endereco.Append(usuario.uf);
-
-                        usuario.endereco = endereco.ToString();
-                        usuario.tipo = (int)rdr["tipo"];
+                        Cadastrousuario usuario = new Cadastrousuario();
+                        usuario.Idusuario = (int)rdr["idUsuario"];
+                        usuario.Email = rdr["email"].ToString();
+                        usuario.Senha = rdr["senha"].ToString();
+                        usuario.Nome = rdr["nome"].ToString();
+                        usuario.Sobrenome = rdr["sobrenome"].ToString();
+                        usuario.Sexo = rdr["sexo"].ToString();
+                        usuario.Cpf = rdr["cpf"].ToString();
+                        usuario.Telefone = rdr["telefone"].ToString();
+                        usuario.Celular = rdr["celular"].ToString();
+                        usuario.Cep = rdr["cep"].ToString();
+                        usuario.Datanasc = rdr["datanasc"].ToString();
+                        usuario.Uf = rdr["uf"].ToString();
+                        usuario.Logradouro = rdr["logradouro"].ToString();
+                        usuario.Numero = rdr["numero"].ToString();
+                        usuario.Cidade = rdr["cidade"].ToString();
+                        usuario.Complemento = rdr["complemento"].ToString();
+                        usuario.Tipo = (int)rdr["tipo"];
 
                         usuarioList.Add(usuario);
                     }
@@ -82,9 +60,9 @@ namespace DAO
             }
             return usuarioList;
         }
-        public Usuario getUsuario(int id)
+        public Cadastrousuario getUsuario(int id)
         {
-            Usuario usuario = new Usuario();
+            Cadastrousuario usuario = new Cadastrousuario();
             using (NpgsqlConnection con = new NpgsqlConnection(connectionString))
             {
                 string comandoSQL = "Select * from CadastroUsuario where idusuario = @id";
@@ -100,45 +78,22 @@ namespace DAO
 
                     while (rdr.Read())
                     {
-                        usuario.IdUsuario = (int)rdr["idUsuario"];
-                        usuario.email = rdr["email"].ToString();
-                        usuario.nome = rdr["nome"].ToString();
-                        usuario.sobrenome = rdr["sobrenome"].ToString();
-
-                        StringBuilder nomeCompl = new StringBuilder();
-                        nomeCompl.Append(usuario.nome);
-                        nomeCompl.Append(" ");
-                        nomeCompl.Append(usuario.sobrenome);
-
-                        usuario.nomeCompleto = nomeCompl.ToString();
-                        usuario.sexo = rdr["sexo"].ToString();
-                        usuario.cpf = rdr["cpf"].ToString();
-                        usuario.telefone = rdr["telefone"].ToString();
-                        usuario.celular = rdr["celular"].ToString();
-                        usuario.cep = rdr["cep"].ToString();
-                        usuario.datanasc = rdr["datanasc"].ToString();
-                        usuario.uf = rdr["uf"].ToString();
-                        usuario.logradouro = rdr["logradouro"].ToString();
-                        usuario.numero = rdr["numero"].ToString();
-                        usuario.cidade = rdr["cidade"].ToString();
-                        usuario.complemento = rdr["complemento"].ToString();
-
-                        StringBuilder endereco = new StringBuilder();
-                        endereco.Append(usuario.logradouro);
-                        endereco.Append(", ");
-                        endereco.Append(usuario.numero);
-                        endereco.Append(", ");
-                        if (usuario.complemento != "")
-                        {
-                            endereco.Append(usuario.complemento);
-                            endereco.Append(", ");
-                        }
-                        endereco.Append(usuario.cidade);
-                        endereco.Append("-");
-                        endereco.Append(usuario.uf);
-
-                        usuario.endereco = endereco.ToString();
-                       // usuario.tipo = (int)rdr["tipo"];
+                        usuario.Idusuario = (int)rdr["idUsuario"];
+                        usuario.Email = rdr["email"].ToString();
+                        usuario.Nome = rdr["nome"].ToString();
+                        usuario.Sobrenome = rdr["sobrenome"].ToString();
+                        usuario.Sexo = rdr["sexo"].ToString();
+                        usuario.Cpf = rdr["cpf"].ToString();
+                        usuario.Telefone = rdr["telefone"].ToString();
+                        usuario.Celular = rdr["celular"].ToString();
+                        usuario.Cep = rdr["cep"].ToString();
+                        usuario.Datanasc = rdr["datanasc"].ToString();
+                        usuario.Uf = rdr["uf"].ToString();
+                        usuario.Logradouro = rdr["logradouro"].ToString();
+                        usuario.Numero = rdr["numero"].ToString();
+                        usuario.Cidade = rdr["cidade"].ToString();
+                        usuario.Complemento = rdr["complemento"].ToString();
+                        usuario.Tipo = (int)rdr["tipo"];
                     }
                 }
                 catch (Exception ex)
@@ -152,7 +107,7 @@ namespace DAO
             }
             return usuario;
         }
-        public bool updateUsuario(int id, Usuario usuario)
+        public bool updateUsuario(int id, Cadastrousuario usuario)
         {
             bool retorno = false;
             using (NpgsqlConnection con = new NpgsqlConnection(connectionString))
@@ -166,21 +121,21 @@ namespace DAO
                 comando.CommandType = CommandType.Text;
 
                 comando.Parameters.AddWithValue("@id", id);
-                comando.Parameters.AddWithValue("@email", usuario.email);
-                comando.Parameters.AddWithValue("@nome", usuario.nome);
-                comando.Parameters.AddWithValue("@sobrenome", usuario.sobrenome);
-                comando.Parameters.AddWithValue("@sexo", usuario.sexo);
-                comando.Parameters.AddWithValue("@cpf", usuario.cpf);
-                comando.Parameters.AddWithValue("@telefone", usuario.telefone);
-                comando.Parameters.AddWithValue("@celular", usuario.celular);
-                comando.Parameters.AddWithValue("@cep", usuario.cep);
-                comando.Parameters.AddWithValue("@datanasc", usuario.datanasc);
-                comando.Parameters.AddWithValue("@uf", usuario.uf);
-                comando.Parameters.AddWithValue("@logradouro", usuario.logradouro);
-                comando.Parameters.AddWithValue("@numero", usuario.numero);
-                comando.Parameters.AddWithValue("@cidade", usuario.cidade);
-                comando.Parameters.AddWithValue("@complemento", usuario.complemento);
-                comando.Parameters.AddWithValue("@tipo", usuario.tipo);
+                comando.Parameters.AddWithValue("@email", usuario.Email);
+                comando.Parameters.AddWithValue("@nome", usuario.Nome);
+                comando.Parameters.AddWithValue("@sobrenome", usuario.Sobrenome);
+                comando.Parameters.AddWithValue("@sexo", usuario.Sexo);
+                comando.Parameters.AddWithValue("@cpf", usuario.Cpf);
+                comando.Parameters.AddWithValue("@telefone", usuario.Telefone);
+                comando.Parameters.AddWithValue("@celular", usuario.Celular);
+                comando.Parameters.AddWithValue("@cep", usuario.Cep);
+                comando.Parameters.AddWithValue("@datanasc", usuario.Datanasc);
+                comando.Parameters.AddWithValue("@uf", usuario.Uf);
+                comando.Parameters.AddWithValue("@logradouro", usuario.Logradouro);
+                comando.Parameters.AddWithValue("@numero", usuario.Numero);
+                comando.Parameters.AddWithValue("@cidade", usuario.Cidade);
+                comando.Parameters.AddWithValue("@complemento", usuario.Complemento);
+                comando.Parameters.AddWithValue("@tipo", usuario.Tipo);
 
                 try
                 {
@@ -199,7 +154,7 @@ namespace DAO
             }
             return retorno;
         }
-        public bool insertUsuario(Usuario usuario)
+        public bool insertUsuario(Cadastrousuario usuario)
         {
             bool retorno = false;
             using (NpgsqlConnection con = new NpgsqlConnection(connectionString))
@@ -212,22 +167,22 @@ namespace DAO
                 NpgsqlCommand comando = new NpgsqlCommand(comandoSQL.ToString(), con);
                 comando.CommandType = CommandType.Text;
 
-                comando.Parameters.AddWithValue("@email", usuario.email);
-                comando.Parameters.AddWithValue("@senha", usuario.senha);
-                comando.Parameters.AddWithValue("@nome", usuario.nome);
-                comando.Parameters.AddWithValue("@sobrenome", usuario.sobrenome);
-                comando.Parameters.AddWithValue("@sexo", usuario.sexo);
-                comando.Parameters.AddWithValue("@cpf", usuario.cpf);
-                comando.Parameters.AddWithValue("@telefone", usuario.telefone);
-                comando.Parameters.AddWithValue("@celular", usuario.celular);
-                comando.Parameters.AddWithValue("@cep", usuario.cep);
-                comando.Parameters.AddWithValue("@datanasc", usuario.datanasc);
-                comando.Parameters.AddWithValue("@uf", usuario.uf);
-                comando.Parameters.AddWithValue("@logradouro", usuario.logradouro);
-                comando.Parameters.AddWithValue("@numero", usuario.numero);
-                comando.Parameters.AddWithValue("@cidade", usuario.cidade);
-                comando.Parameters.AddWithValue("@complemento", usuario.complemento);
-                comando.Parameters.AddWithValue("@tipo", usuario.tipo);
+                comando.Parameters.AddWithValue("@email", usuario.Email);
+                comando.Parameters.AddWithValue("@senha", usuario.Senha);
+                comando.Parameters.AddWithValue("@nome", usuario.Nome);
+                comando.Parameters.AddWithValue("@sobrenome", usuario.Sobrenome);
+                comando.Parameters.AddWithValue("@sexo", usuario.Sexo);
+                comando.Parameters.AddWithValue("@cpf", usuario.Cpf);
+                comando.Parameters.AddWithValue("@telefone", usuario.Telefone);
+                comando.Parameters.AddWithValue("@celular", usuario.Celular);
+                comando.Parameters.AddWithValue("@cep", usuario.Cep);
+                comando.Parameters.AddWithValue("@datanasc", usuario.Datanasc);
+                comando.Parameters.AddWithValue("@uf", usuario.Uf);
+                comando.Parameters.AddWithValue("@logradouro", usuario.Logradouro);
+                comando.Parameters.AddWithValue("@numero", usuario.Numero);
+                comando.Parameters.AddWithValue("@cidade", usuario.Cidade);
+                comando.Parameters.AddWithValue("@complemento", usuario.Complemento);
+                comando.Parameters.AddWithValue("@tipo", usuario.Tipo);
 
                 try
                 {

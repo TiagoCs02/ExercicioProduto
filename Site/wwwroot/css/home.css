@@ -4,10 +4,6 @@
 .bg-orange {
     background-color: #ff6914;
 }
-
-.bg-orange .dropdown-menu {
-    background-color: #ff6914;
-}
 .div_produto{
     margin-top: 40px;
     display: inline-block;
@@ -24,11 +20,16 @@
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 20px;
 }
+.card{
+    margin: 12px;
+}
 .footer {
-    grid-area:foot;
-	position: relative;
+    margin-top: 5%;
+    padding: 10px 15px;
+    grid-area: foot;
+    position: relative;
     bottom: 0px;
-    height: 45px;
+    height: 75px;
     width: 100%;
     background-color: #ff6914;
     color: white;
@@ -49,7 +50,7 @@
     text-decoration: none;
  }
  .nav-link {
-    background-color: #ff6914;
+   background-color: #ff6914;
    color: white; 
    font-weight: bold;
    
@@ -69,7 +70,7 @@
 }
 #titulo{
     font-family: 'Bree Serif', serif;
-   
+    font-size: 25px;
     
 }
 .bg-silver{

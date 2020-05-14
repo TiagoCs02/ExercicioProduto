@@ -2,9 +2,7 @@
     background-color: #ff6914;
 }
 
-.bg-orange .dropdown-menu {
-    background-color: #ff6914;
-}
+
 .footer {
     grid-area:foot;
 	position: relative;
@@ -93,6 +91,7 @@
     color: #ff6914;
 }
 .btn-secondary{
+    
     font-size: 16px;
     color: #771ed2;
     background-color: white;
@@ -106,10 +105,12 @@
     border-color: white;
 }
 .footer {
-    grid-area:foot;
-	position: fixed;
-    margin-bottom: 0px;
-    height: 45px;
+    margin-top: 5%;
+    padding: 10px 15px;
+    grid-area: foot;
+    position: relative;
+    bottom: 0px;
+    height: 75px;
     width: 100%;
     background-color: #ff6914;
     color: white;
@@ -129,3 +130,26 @@
     color: #771ed2;
     text-decoration: none;
  }
+ 
+.div_produto{
+    margin-top: 40px;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+
+}
+.div_produto1{
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    width: 250px;
+    background-color: rgb(237, 237, 237);
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 20px;
+}
+#titulo{
+    margin-top: 10%;
+    font-family: 'Bree Serif', serif;
+    font-size: 25px;
+    
+}

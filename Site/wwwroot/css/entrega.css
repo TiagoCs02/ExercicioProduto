@@ -1,12 +1,69 @@
-.botao{
-    margin-top: 5%;
-    margin-left: 75%;
-    display: flex;
-}
-.bg-orange {
-    background-color: orange;
-}
 
-.bg-orange .dropdown-menu {
-    background-color: orange;
+.bg-orange {
+    background-color: #ff6914;
 }
+.btn-secondary{
+	font-size: 14px;
+    color: #771ed2;
+    background-color: white;
+    border-color: 2px solid #771ed2;
+ }
+ .btn-secondary:hover{
+    font-size: 14px;
+    color: white;
+    background-color: #771ed2;
+    border-color: white;
+} 
+.btn-primary{
+    font-size: 14px;
+    border-color: white;
+    background-color: #ff6914;
+    
+}
+.btn-primary:hover{
+    font-size: 14px;
+    border-color: #ff6914;
+    background-color: white;
+    color: #ff6914;
+}
+.titulo {
+    color: #771ed2;
+    margin-top: 50px;
+    padding-left: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid silver;
+}
+.botao{
+    margin-top: 14%;
+}
+.botao1{
+    margin-top: 4%;
+}
+.fa-truck{
+    color: white;
+}
+.footer {
+    margin-top: 3%;
+    padding: 10px 15px;
+    grid-area: foot;
+    position: relative;
+    bottom: 0px;
+    height: 75px;
+    width: 100%;
+    background-color: #ff6914;
+    color: white;
+    text-align: center;
+ }
+
+ .footer .row {
+     margin-top: 20px;
+ }
+
+ .footer i {
+     margin-right: 5px;
+ }
+
+ .footer a {
+    text-decoration: none;
+ }

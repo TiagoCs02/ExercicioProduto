@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -26,14 +27,14 @@ namespace Site.Controllers
         {
             ViewBag.Login = HttpContext.Session.GetInt32("_Login");
             ViewBag.Nome = HttpContext.Session.GetString("_Nome");
-            List<Produto> produto = new List<Produto>();
+            List<Cadastroproduto> produto = new List<Cadastroproduto>();
             using(var httpClient = new HttpClient())
             {
                 using (var response = await httpClient.GetAsync("https://localhost:44308/api/produto"))
                 {
 
                     string respostaAPI = await response.Content.ReadAsStringAsync();
-                    produto = JsonConvert.DeserializeObject<List<Produto>>(respostaAPI);
+                    produto = JsonConvert.DeserializeObject<List<Cadastroproduto>>(respostaAPI);
 
                 }
             }

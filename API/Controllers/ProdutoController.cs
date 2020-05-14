@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Models;
 using BL;
+using Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -13,36 +15,40 @@ namespace API.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
+        private ApiContext _context;
+        public ProdutoController(ApiContext context)
+        {
+            _context = context;
+        }
         // GET: api/Produto
         [HttpGet]
-        public IEnumerable<Produto> Get()
+        public IEnumerable<Cadastroproduto> Get()
         {
-            ProdutoBL prodBl = new ProdutoBL();
-            List<Produto> produtoList = prodBl.getProdutos();
-            return produtoList.OrderByDescending(p => p.IdProduto);
+            ProdutoBL prodBl = new ProdutoBL(_context);
+            return prodBl.getProdutos();
         }
 
         // GET: api/Produto/5
         [HttpGet("{id}")]
-        public Produto Get(int id)
+        public Cadastroproduto Get(int id)
         {
-            ProdutoBL prodBl = new ProdutoBL();
-            Produto produto = prodBl.getProduto(id);
+            ProdutoBL prodBl = new ProdutoBL(_context);
+            Cadastroproduto produto = prodBl.getProduto(id);
             return produto;
         }
 
         // POST: api/Produto
         [HttpPost]
-        public bool Post([FromForm] Produto produto)
+        public bool Post([FromForm] Cadastroproduto produto)
         {
-            ProdutoBL prodBl = new ProdutoBL();
+            ProdutoBL prodBl = new ProdutoBL(_context);
             return prodBl.insertProduto(produto);
         }
         // PUT: api/Produto/5
         [HttpPut("{id}")]
-        public bool Put(int id, [FromBody] Produto produto)
+        public bool Put(int id, [FromBody] Cadastroproduto produto)
         {
-            ProdutoBL prodBl = new ProdutoBL();
+            ProdutoBL prodBl = new ProdutoBL(_context);
             return prodBl.updateProduto(id,produto);
         }
 
@@ -50,7 +56,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public bool Delete(int id)
         {
-            ProdutoBL prodBl = new ProdutoBL();
+            ProdutoBL prodBl = new ProdutoBL(_context);
             return prodBl.deleteProduto(id);
         }
     }

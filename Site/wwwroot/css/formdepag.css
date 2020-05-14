@@ -1,0 +1,102 @@
+.bg-orange {
+    background-color: #ff6914;
+}
+.validade{
+	width: 10px;
+	text-align: center;
+}
+#donocard{
+	width: 252px;
+}
+#cardnumber{
+	margin-right: 10px;
+	width: 180px;
+}
+#cartoes{
+    font-size: 14px;
+    margin-bottom: -45%;
+	display: none;
+	margin-top: 100px;
+    background-color: rgb(237, 237, 237);
+    padding: 10px;
+    border-radius: 10px;
+    
+    
+}
+#bolet{
+	font-size: 14px;
+	display: none;
+	margin-top: 100px;
+    background-color: rgb(237, 237, 237);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: -35%;
+}
+.titulo{
+	color: #771ed2;
+    margin-top: 50px;
+    padding-left: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid silver;
+}
+.footer {
+    margin-top: 5%;
+    padding: 10px 15px;
+    grid-area: foot;
+    position: relative;
+    bottom: 0px;
+    height: 75px;
+    width: 100%;
+    background-color: #ff6914;
+    color: white;
+    text-align: center;
+ }
+.fa-credit-card{
+    color: white;
+}
+ .footer .row {
+     margin-top: 20px;
+ }
+
+ .footer i {
+     margin-top: 10px;
+     margin-right: 5px;
+ }
+
+ .footer a {  
+    color: #771ed2;
+    text-decoration: none;
+ }
+ .btn-secondary{
+  
+	font-size: 14px;
+    color: #771ed2;
+    background-color: white;
+    border-color: 2px solid #771ed2;
+ }
+ .btn-secondary:hover{
+     
+    font-size: 14px;
+    color: white;
+    background-color: #771ed2;
+    border-color: white;
+} 
+.btn-primary{
+    font-size: 14px;
+    border-color: white;
+    background-color: #ff6914;
+    
+}
+.btn-primary:hover{
+    font-size: 14px;
+    border-color: #ff6914;
+    background-color: white;
+    color: #ff6914;
+}
+.botao {
+   margin-top: 14%;
+}
+.botao1{
+    margin-top: 4%;
+}

@@ -1,0 +1,162 @@
+﻿
+@{
+    Layout = "_Site";
+}
+
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="~/css/cadusuario.css">
+    <title>Brasil Vinil - Cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+        <h4 class="titulo_lista">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            Cadastro de Usuário
+        </h4>
+        <form login>
+
+            <div class="row">
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Nome</b></label>
+                    <input type="text" required class="form-control form-control-sm" placeholder="Primeiro Nome">
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Último Nome </b></label>
+                    <input type="text" required class="form-control form-control-sm" placeholder="Último Nome">
+                </div>
+
+                <div class="col-md-2 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Data de Nascimento</b></label>
+                    <input type="date" required class="form-control form-control-sm">
+                </div>
+
+                <div class="col-md-2 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Sexo </b></label>
+                    <br>
+                    <select name="sexo" required class="form-control form-control-sm">
+                        <option value="F">Feminino</option>
+                        <option value="M">Masculino</option>
+                        <option value="O"> Outros</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> E-mail</b></label>
+                    <input type="text" required class="form-control form-control-sm" placeholder="Insira seu E-mail">
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Senha</b></label>
+                    <input type="password" required class="form-control form-control-sm" placeholder="Crie uma Senha">
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Confirme sua Senha</b></label>
+                    <input type="password" required class="form-control form-control-sm" placeholder="Confirme">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Telefone</b></label>
+                    <input type="text" required class="form-control form-control-sm" placeholder="Insira seu Telefone">
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Celular</b></label>
+                    <input type="text" required class="form-control form-control-sm" placeholder="Insira seu Celular">
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> CPF</b></label>
+                    <input type="text" class="form-control form-control-sm" placeholder="CPF">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Cep</b></label>
+                    <input type="text" required class="form-control form-control-sm" id="txtcep" maxlength="8"
+                           placeholder="Insira seu CEP">
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Logradouro</b></label>
+                    <input type="text" required id="logradouro" class="form-control form-control-sm"
+                           placeholder="Insira seu Enderço">
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b>Bairro</b></label>
+                    <input type="text" required id="bairro" class="form-control form-control-sm"
+                           placeholder="Insira seu Bairro">
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Nº</b></label>
+                    <input type="text" required class="form-control form-control-sm" placeholder="Insira o Número ">
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Estado</b></label>
+                    <select name="uf" required id="uf" class="form-control form-control-sm">
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Cidade</b></label>
+                    <input type="text" id="cidade" class="form-control form-control-sm" placeholder="Insira sua Cidade">
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="exampleFormControlInput1"> <b> Complemento</b></label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Opcional">
+                </div>
+
+
+                <div class="col-md-2 col-xs-12 botao">
+                    <button type="button" class="btn btn-primary btn-lg btn-block"><b>Voltar</b></button>
+                </div>
+
+                <div class="col-md-2 col-xs-12 botao">
+                    <button type="submit" class="btn btn-secondary btn-lg btn-block"><b>Confirmar</b></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

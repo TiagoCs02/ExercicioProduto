@@ -18,23 +18,46 @@ tbody img {
     background-color: #ff6914;
 }
 
-
-
 table .fa {
     color:red;
 }
-
-.titulo_lista {
-    margin-top: 20px;
+.titulo_lista {   
+    color: #771ed2;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
-
+ .btn-secondary{
+	font-size: 14px;
+    color: #771ed2;
+    background-color: white;
+    border-color: 2px solid #771ed2;
+ }
+ .btn-secondary:hover{
+    font-size: 14px;
+    color: white;
+    background-color: #771ed2;
+    border-color: white;
+} 
+.btn-primary{
+    font-size: 14px;
+    border-color: white;
+    background-color: #ff6914;
+    
+}
+.btn-primary:hover{
+    font-size: 14px;
+    border-color: #ff6914;
+    background-color: white;
+    color: #ff6914;
+}
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    margin-top: 5%;
+    padding: 10px 15px;
+    grid-area: foot;
+    position: relative;
+    bottom: 0px;
+    height: 75px;
     width: 100%;
-    height: 45px;
     background-color: #ff6914;
     color: white;
     text-align: center;
@@ -51,3 +74,9 @@ table .fa {
  .footer a {
     text-decoration: none;
  }
+ .fa-shopping-cart{
+     color: #771ed2;
+ }
+ .botao1{
+    margin-top: 4%;
+}

@@ -1,0 +1,39 @@
+﻿@model API.Models.Cadastroproduto
+@{
+    Layout = "_Site";
+    ViewData["Title"] = "Descrição do Produto";
+}
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="~/css/descricao.css">
+    <title>Brasil Vinil - Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="div_titulo">
+            <p class="text-center"><b>@Model.Nome</b></p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+
+                <img src="~/img/destaque2.jpg" alt="..." width="300" height="300" class="rounded mx-auto d-block">
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <p class="text-left div_descr"><b>Descrição:</b></p>
+                <p class="text-left">Essee;;;;;;;</p>
+
+            </div>
+            <div class="col-md-4 col-xs-12 div_botao">
+                <p class="text-left div_preco "><b>R$@Model.Valor</b></p>
+                <button type="button" class="btn btn-primary btn-lg btn-block">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <b>ADICIONAR AO CARRINHO</b>
+                </button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block"><b>COMPRAR</b></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
