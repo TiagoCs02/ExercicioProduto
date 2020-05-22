@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using Models;
 using Newtonsoft.Json;
 
@@ -57,21 +58,37 @@ namespace Site.Controllers
         {
             ViewBag.Login = HttpContext.Session.GetInt32("_Login");
             ViewBag.Nome = HttpContext.Session.GetString("_Nome");
+            if(HttpContext.Session.GetString("_Msg") != null)
+            {
+                ViewBag.Msg = HttpContext.Session.GetString("_Msg");
+            }
             return View();
         }
         public async Task<IActionResult> CadastroAsync([FromForm] Cadastrousuario usuario)
         {
             using (var httpClient = new HttpClient())
             {
+                if(usuario.Senha != usuario.ConfSenha)
+                {
+                    HttpContext.Session.SetString("_Msg", "Senhas não são iguais");
+                    return RedirectToAction("cadUsuario");
+                }
                 using (var responseLogin = await httpClient.PostAsync("https://localhost:44308/api/usuario/", usuario, new JsonMediaTypeFormatter()))
                 {
 
                     string respostaAPI = await responseLogin.Content.ReadAsStringAsync();
-                    if (respostaAPI == "true")
+                    switch(respostaAPI)
                     {
-                        return RedirectToAction("Index", "Login");
+                        case "0":
+                            HttpContext.Session.SetString("_Msg", "Usuário já existe");
+                            return RedirectToAction("cadUsuario");
+                        case "1":
+                            HttpContext.Session.SetString("_Msg", "Cadastro realizado com sucesso");
+                            return RedirectToAction("Index", "Login");
+                        case "2":
+                            HttpContext.Session.SetString("_Msg", "Erro ao cadastrar usuário");
+                            return RedirectToAction("cadUsuario");
                     }
-
                 }
             }
             return RedirectToAction("cadUsuario");

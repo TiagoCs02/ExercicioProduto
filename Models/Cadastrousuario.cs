@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API.Models
 {
@@ -17,6 +18,8 @@ namespace API.Models
         public string Nome { get; set; }
         public string Numero { get; set; }
         public string Senha { get; set; }
+        [NotMapped]
+        public string ConfSenha { get; set; }
         public string Sexo { get; set; }
         public string Sobrenome { get; set; }
         public string Telefone { get; set; }

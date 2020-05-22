@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Models;
 using BL;
+using Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -14,11 +15,17 @@ namespace API.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
+        private ApiContext _context;
+
+        public UsuarioController(ApiContext context)
+        {
+            _context = context;
+        }
         // GET: api/Usuario
         [HttpGet]
         public IEnumerable<Cadastrousuario> Get()
         {
-            UsuarioBL userBl = new UsuarioBL();
+            UsuarioBL userBl = new UsuarioBL(_context);
             List<Cadastrousuario> usuarioList = userBl.getUsuarios();
             return usuarioList;
         }
@@ -27,16 +34,16 @@ namespace API.Controllers
         [HttpGet("{id}", Name = "Get")]
         public Cadastrousuario Get(int id)
         {
-            UsuarioBL userBl = new UsuarioBL();
+            UsuarioBL userBl = new UsuarioBL(_context);
             Cadastrousuario usuario = userBl.getUsuario(id);
             return usuario;
         }
 
         // POST: api/Usuario
         [HttpPost]
-        public bool Post(Cadastrousuario usuario)
+        public int Post(Cadastrousuario usuario)
         {
-            UsuarioBL userBl = new UsuarioBL();
+            UsuarioBL userBl = new UsuarioBL(_context);
             return userBl.insertUsuario(usuario); 
         }
 
@@ -44,7 +51,7 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public string Put(int id, [FromBody] Cadastrousuario usuario)
         {
-            UsuarioBL userBl = new UsuarioBL();
+            UsuarioBL userBl = new UsuarioBL(_context);
             if (userBl.updateUsuario(id,usuario))
             {
                 return "Usuario atualizado";
@@ -56,7 +63,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public string Delete(int id)
         {
-            UsuarioBL userBl = new UsuarioBL();
+            UsuarioBL userBl = new UsuarioBL(_context);
             if (userBl.deleteUsuario(id))
             {
                 return "Usuario deletado";

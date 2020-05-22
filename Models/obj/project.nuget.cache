@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "MNov1fsOsr7p8Jpwc2rxTp8KiDzTM2dsckQwOtNm+6GIFdXxOMjtdOpEwOr1YmMM4qJYEm3T0cGKpYYXDsu9qg==",
+  "dgSpecHash": "xVDJoXp7CBbG2YzsPNgteCIYeUGh6AqwvjXSnpMpAphwmcoUByv0+gT4JN66UdsMF+91OB3G3XBiJFIiV9Q6ew==",
   "success": true,
   "projectFilePath": "C:\\Users\\ADMIN\\source\\repos\\ExercicioProduto\\Models\\Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.4\\microsoft.aspnetcore.jsonpatch.3.1.4.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.4\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.4.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

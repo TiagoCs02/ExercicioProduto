@@ -1,8 +1,10 @@
 ﻿using API.Models;
+using Context;
 using DAO;
 using Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BL
@@ -11,25 +13,62 @@ namespace BL
     {
         UsuarioDAO userDAO;
 
+        private ApiContext _context;
+
+        public UsuarioBL(ApiContext context)
+        {
+            _context = context;
+        }
+
         public List<Cadastrousuario> getUsuarios()
         {
-            userDAO = new UsuarioDAO();
-            return userDAO.getUsuarios();
+            List<Cadastrousuario> userList = new List<Cadastrousuario>();
+
+            userList = _context.Cadastrousuario.Select(x => x).ToList();
+
+            foreach(Cadastrousuario usuario in userList)
+            {
+                usuario.Senha = "******";
+            }
+
+            return userList;
         }
         public Cadastrousuario getUsuario(int id)
         {
-            userDAO = new UsuarioDAO();
-            return userDAO.getUsuario(id);
+            Cadastrousuario usuario = new Cadastrousuario();
+
+            usuario = _context.Cadastrousuario.Select(u => u).Where(x => x.Idusuario == id).FirstOrDefault();
+
+            usuario.Senha = "";
+
+            return usuario;
         }
         public bool updateUsuario(int id, Cadastrousuario usuario)
         {
             userDAO = new UsuarioDAO();
             return userDAO.updateUsuario(id, usuario);
         }
-        public bool insertUsuario(Cadastrousuario usuario)
+        public int insertUsuario(Cadastrousuario usuario)
         {
-            userDAO = new UsuarioDAO();
-            return userDAO.insertUsuario(usuario);
+            Cadastrousuario valUser = new Cadastrousuario();
+            try
+            {
+                valUser = _context.Cadastrousuario.Select(x => x).Where(u => u.Email == usuario.Email).FirstOrDefault();
+
+                if (valUser != null)
+                {
+                    return 0;//Usuario já cadastrado
+                }
+
+                _context.Add(usuario);
+                _context.SaveChanges();
+
+                return 1;//Cadastro com sucesso
+            }
+            catch(Exception)
+            {
+                return 2;//Erro de exception
+            }
         }
         public bool deleteUsuario(int id)
         {

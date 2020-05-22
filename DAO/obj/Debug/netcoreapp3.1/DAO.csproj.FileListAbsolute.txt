@@ -22,3 +22,7 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\obj\Debug\netcoreapp3.1\DAO.pdb
 C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\obj\Debug\netcoreapp3.1\DAO.genruntimeconfig.cache
 C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\bin\Debug\netcoreapp3.1\Npgsql.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\obj\Debug\netcoreapp3.1\DAO.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\ADMIN\source\repos\ExercicioProduto\DAO\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

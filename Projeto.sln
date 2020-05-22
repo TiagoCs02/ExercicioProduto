@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{94C3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site", "Site\Site.csproj", "{E42EB26A-66FE-4C04-A9D2-A46FA9E41BA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Context", "Context\Context.csproj", "{485CAB3A-B417-4551-9B26-586B661A7347}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Context", "Context\Context.csproj", "{485CAB3A-B417-4551-9B26-586B661A7347}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

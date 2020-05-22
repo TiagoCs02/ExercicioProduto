@@ -91,9 +91,16 @@
                             <h4 class="text-center" style="color: #771ED2; ">@prod.Nome</h4>
                             <img src="~/img/destaque3.jpg" class="rounded mx-auto d-block" width="250" alt="...">
                             <div class="div_produto1">
-                                <h4 class="text-center" style="color: #ff6914;">R$@prod.Valor</h4>
-                                <b>@prod.Artista</b>
-                                <label>Descrição do Produto</label>
+                                @if (prod.valEstoque > 0)
+                                {
+                                    <h4 class="text-center" style="color: #ff6914;">R$@prod.Valor</h4>
+                                }
+                                else
+                                {
+                                    <h4 class="text-center" style="color: #ff6914;"> Produto Indisponível </h4>
+                                }
+                            <b>@prod.Artista</b>
+                            <label>@prod.Descricao</label>
                             </div>
                         </a>
                     </div>

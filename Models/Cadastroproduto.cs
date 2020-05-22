@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API.Models
 {
@@ -27,5 +28,7 @@ namespace API.Models
         public virtual ICollection<Detalhepedido> Detalhepedido { get; set; }
         public virtual ICollection<Estoque> Estoque { get; set; }
         public virtual ICollection<Movimentacao> Movimentacao { get; set; }
+        [NotMapped]
+        public int valEstoque { get; set; }
     }
 }

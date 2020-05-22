@@ -24,7 +24,6 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\BL\obj\Debug\netcoreapp3.1\BL.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\obj\Debug\netcoreapp3.1\BL.pdb
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\obj\Debug\netcoreapp3.1\BL.genruntimeconfig.cache
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Npgsql.dll
-C:\Users\ADMIN\source\repos\ExercicioProduto\BL\obj\Debug\netcoreapp3.1\BL.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
@@ -50,3 +49,8 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Microsof
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Context.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Context.pdb
+C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\ADMIN\source\repos\ExercicioProduto\BL\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\ADMIN\source\repos\ExercicioProduto\BL\obj\Debug\netcoreapp3.1\BL.csproj.CoreCompileInputs.cache

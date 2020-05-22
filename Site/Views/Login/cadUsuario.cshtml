@@ -17,29 +17,33 @@
             <i class="fa fa-user" aria-hidden="true"></i>
             Cadastro de Usuário
         </h4>
-        <form login>
+        @if(ViewBag.Msg != null)
+        {
+            @ViewBag.Msg;
+        }
+        <form name="cadastro" method="post" asp-controller="Login" asp-action="Cadastro">
 
             <div class="row">
 
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Nome</b></label>
-                    <input type="text" required class="form-control form-control-sm" placeholder="Primeiro Nome">
+                    <input type="text" required class="form-control form-control-sm" name="Nome" placeholder="Primeiro Nome">
                 </div>
 
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Último Nome </b></label>
-                    <input type="text" required class="form-control form-control-sm" placeholder="Último Nome">
+                    <input type="text" required class="form-control form-control-sm" name="Sobrenome" placeholder="Último Nome">
                 </div>
 
                 <div class="col-md-2 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Data de Nascimento</b></label>
-                    <input type="date" required class="form-control form-control-sm">
+                    <input type="date" name="Datanasc" required class="form-control form-control-sm">
                 </div>
 
                 <div class="col-md-2 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Sexo </b></label>
                     <br>
-                    <select name="sexo" required class="form-control form-control-sm">
+                    <select name="Sexo" required class="form-control form-control-sm">
                         <option value="F">Feminino</option>
                         <option value="M">Masculino</option>
                         <option value="O"> Outros</option>
@@ -51,17 +55,17 @@
 
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> E-mail</b></label>
-                    <input type="text" required class="form-control form-control-sm" placeholder="Insira seu E-mail">
+                    <input type="text" required class="form-control form-control-sm" name="Email" placeholder="Insira seu E-mail">
                 </div>
 
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Senha</b></label>
-                    <input type="password" required class="form-control form-control-sm" placeholder="Crie uma Senha">
+                    <input type="password" required class="form-control form-control-sm" name="Senha" placeholder="Crie uma Senha">
                 </div>
 
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Confirme sua Senha</b></label>
-                    <input type="password" required class="form-control form-control-sm" placeholder="Confirme">
+                    <input type="password" required class="form-control form-control-sm" name="ConfSenha" placeholder="Confirme">
                 </div>
             </div>
 
@@ -69,42 +73,42 @@
 
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Telefone</b></label>
-                    <input type="text" required class="form-control form-control-sm" placeholder="Insira seu Telefone">
+                    <input type="text" required class="form-control form-control-sm" name="Telefone" placeholder="Insira seu Telefone">
                 </div>
 
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Celular</b></label>
-                    <input type="text" required class="form-control form-control-sm" placeholder="Insira seu Celular">
+                    <input type="text" required class="form-control form-control-sm" name="Celular" placeholder="Insira seu Celular">
                 </div>
 
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> CPF</b></label>
-                    <input type="text" class="form-control form-control-sm" placeholder="CPF">
+                    <input type="text" required class="form-control form-control-sm" name="CPF" placeholder="CPF">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Cep</b></label>
-                    <input type="text" required class="form-control form-control-sm" id="txtcep" maxlength="8"
+                    <input type="text" required class="form-control form-control-sm" id="txtcep" name="CEP" maxlength="8"
                            placeholder="Insira seu CEP">
                 </div>
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Logradouro</b></label>
-                    <input type="text" required id="logradouro" class="form-control form-control-sm"
+                    <input type="text" required id="logradouro" name="Logradouro" class="form-control form-control-sm"
                            placeholder="Insira seu Enderço">
                 </div>
                 <div class="col-md-2 col-xs-12">
                     <label for="exampleFormControlInput1"> <b>Bairro</b></label>
-                    <input type="text" required id="bairro" class="form-control form-control-sm"
+                    <input type="text" required id="bairro" name="Bairro" class="form-control form-control-sm"
                            placeholder="Insira seu Bairro">
                 </div>
                 <div class="col-md-2 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Nº</b></label>
-                    <input type="text" required class="form-control form-control-sm" placeholder="Insira o Número ">
+                    <input type="text" required class="form-control form-control-sm" name="Numero" placeholder="Insira o Número ">
                 </div>
                 <div class="col-md-2 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Estado</b></label>
-                    <select name="uf" required id="uf" class="form-control form-control-sm">
+                    <select name="UF" required id="uf" class="form-control form-control-sm">
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
                         <option value="AP">Amapá</option>
@@ -138,12 +142,12 @@
             <div class="row">
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Cidade</b></label>
-                    <input type="text" id="cidade" class="form-control form-control-sm" placeholder="Insira sua Cidade">
+                    <input type="text" id="cidade" required class="form-control form-control-sm" name="Cidade" placeholder="Insira sua Cidade">
                 </div>
 
                 <div class="col-md-4 col-xs-12">
                     <label for="exampleFormControlInput1"> <b> Complemento</b></label>
-                    <input type="text" class="form-control form-control-sm" placeholder="Opcional">
+                    <input type="text" class="form-control form-control-sm" name="Complemento" placeholder="Opcional">
                 </div>
 
 
