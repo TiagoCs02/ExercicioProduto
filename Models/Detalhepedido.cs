@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace API.Models
+namespace Models
 {
     public partial class Detalhepedido
     {
-        public int Idpedido { get; set; }
-        public int Idproduto { get; set; }
+        public int IdPedido { get; set; }
+        public int IdProduto { get; set; }
         public int Quantidade { get; set; }
 
-        public virtual Pedido IdpedidoNavigation { get; set; }
-        public virtual Cadastroproduto IdprodutoNavigation { get; set; }
+        public virtual Pedido IdPedidoNavigation { get; set; }
+        public virtual Cadastroproduto IdProdutoNavigation { get; set; }
     }
 }

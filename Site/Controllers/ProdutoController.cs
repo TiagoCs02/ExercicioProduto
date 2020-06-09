@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Newtonsoft.Json;
@@ -26,6 +26,43 @@ namespace Site.Controllers
                 }
             }
             return View(produto);
+        }
+
+        public IActionResult AddCarrinho(int id)
+        {
+            List<Carrinho> CarrinhoList = new List<Carrinho>();
+            if (HttpContext.Session.GetString("_Carrinho") == null || HttpContext.Session.GetString("_Carrinho") == "")
+            {
+                Carrinho carrinho = new Carrinho();
+                carrinho.IdProduto = id;
+                carrinho.Quantidade = 1;
+                CarrinhoList.Add(carrinho);
+            }
+            else
+            {
+                string recebe = HttpContext.Session.GetString("_Carrinho");
+                CarrinhoList = JsonConvert.DeserializeObject<List<Carrinho>>(recebe);
+                foreach(Carrinho carrinho in CarrinhoList)
+                {
+                    if(carrinho.IdProduto == id)
+                    {
+                        carrinho.Quantidade += 1;
+                    }
+                    else
+                    {
+                        Carrinho NewCarrinho = new Carrinho();
+                        NewCarrinho.IdProduto = id;
+                        NewCarrinho.Quantidade = 1;
+                        CarrinhoList.Add(NewCarrinho);
+                    }
+                }
+
+            }
+            string envio = JsonConvert.SerializeObject(CarrinhoList);
+
+            HttpContext.Session.SetString("_Carrinho", envio);
+
+            return RedirectToAction("Carrinho", "Compra");
         }
     }
 }

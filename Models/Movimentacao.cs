@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace API.Models
+namespace Models
 {
     public partial class Movimentacao
     {
-        public int Idmovimentacao { get; set; }
-        public DateTime? Datanf { get; set; }
-        public DateTime? Data { get; set; }
+        public int IdMovimentacao { get; set; }
+        public int? IdPedido { get; set; }
+        public int IdProduto { get; set; }
+        public DateTime? DataNf { get; set; }
+        public DateTime Data { get; set; }
         public string Nf { get; set; }
         public int Quantidade { get; set; }
         public string Tipo { get; set; }
-        public int? IdpedidoIdpedido { get; set; }
-        public int? IdprodutoIdproduto { get; set; }
 
-        public virtual Pedido IdpedidoIdpedidoNavigation { get; set; }
-        public virtual Cadastroproduto IdprodutoIdprodutoNavigation { get; set; }
+        public virtual Pedido IdPedidoNavigation { get; set; }
+        public virtual Cadastroproduto IdProdutoNavigation { get; set; }
     }
 }

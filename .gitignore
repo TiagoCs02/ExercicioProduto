@@ -1,3 +1,15 @@
 
 .vs
 View
+bin
+obj
+API/bin
+API/obj
+Context/bin
+Context/obj
+Models/bin
+Models/obj
+Site/bin
+Site/obj
+BL/bin
+BL/obj

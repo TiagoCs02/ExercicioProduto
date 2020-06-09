@@ -1,6 +1,5 @@
-﻿using API.Models;
-using Context;
-using DAO;
+﻿using Context;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using System;
@@ -11,7 +10,6 @@ namespace BL
 {
     public class ProdutoBL
     {
-        ProdutoDAO prodDAO;
 
         private ApiContext _context;
 
@@ -22,18 +20,26 @@ namespace BL
         public List<Cadastroproduto> getProdutos()
         {
             List<Cadastroproduto> prodList = new List<Cadastroproduto>();
-            prodList = _context.Cadastroproduto.Select(x => x).Include(e => e.Estoque).ToList();
-            foreach(Cadastroproduto produto in prodList)
+            try
             {
-                var estoque = produto.Estoque.OrderByDescending(e => e.Data).FirstOrDefault();
-                if (estoque.Estoqueatual >= estoque.Estoquemin)
+                prodList = _context.Cadastroproduto.Select(x => x).Include(e => e.Estoque).ToList();
+                foreach (Cadastroproduto produto in prodList)
                 {
-                    produto.valEstoque = 1;
+                    var estoque = produto.Estoque.OrderByDescending(e => e.Data).FirstOrDefault();
+                    if (estoque.EstoqueAtual >= estoque.EstoqueMin)
+                    {
+                        produto.valEstoque = 1;
+                    }
+                    else
+                    {
+                        produto.valEstoque = 0;
+                    }
                 }
-                else
-                {
-                    produto.valEstoque = 0;
-                }
+                
+            }
+            catch(Exception)
+            {
+
             }
             return prodList;
 
@@ -42,10 +48,10 @@ namespace BL
         {
             Cadastroproduto produto = new Cadastroproduto();
 
-            produto = _context.Cadastroproduto.Select(p => p).Where(x => x.Idproduto == id).Include(e => e.Estoque).FirstOrDefault();
+            produto = _context.Cadastroproduto.Select(p => p).Where(x => x.IdProduto == id).Include(e => e.Estoque).FirstOrDefault();
 
             var estoque = produto.Estoque.OrderByDescending(e => e.Data).FirstOrDefault();
-            if (estoque.Estoqueatual >= estoque.Estoquemin)
+            if (estoque.EstoqueAtual >= estoque.EstoqueMin)
             {
                 produto.valEstoque = 1;
             }
@@ -56,20 +62,27 @@ namespace BL
 
             return produto;
         }
-        public bool updateProduto(int id, Cadastroproduto produto)
+        public void updateProduto(int id, Cadastroproduto produto)
         {
-            prodDAO = new ProdutoDAO();
-            return prodDAO.updateProduto(id,produto);
         }
         public bool insertProduto(Cadastroproduto produto)
         {
-            prodDAO = new ProdutoDAO();
-            return prodDAO.insertProduto(produto);
+            try
+            {
+
+                _context.Add(produto);
+                _context.SaveChanges();
+
+                return true;
+
+            }
+            catch(Exception)
+            {
+                return false;
+            }
         }
-        public bool deleteProduto(int id)
+        public void deleteProduto(int id)
         {
-            prodDAO = new ProdutoDAO();
-            return prodDAO.deleteProduto(id);
         }
     }
 }

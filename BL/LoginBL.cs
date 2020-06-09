@@ -1,6 +1,4 @@
-﻿using API.Models;
-using Context;
-using DAO;
+﻿using Context;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +20,7 @@ namespace BL
             Cadastrousuario user = _context.Cadastrousuario.Where(x => x.Email == usuario.Email && x.Senha == usuario.Senha).SingleOrDefault();
             if (user != null)
             {
-                retorno = user.Idusuario;
+                retorno = user.IdUsuario;
             }
             return retorno;
         }

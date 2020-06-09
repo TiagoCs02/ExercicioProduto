@@ -120,3 +120,4 @@ C:\Users\ADMIN\source\repos\ExercicioProduto\Site\bin\Debug\netcoreapp3.1\Micros
 C:\Users\ADMIN\source\repos\ExercicioProduto\Site\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\ADMIN\source\repos\ExercicioProduto\Site\obj\Debug\netcoreapp3.1\Site.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\source\repos\ExercicioProduto\Site\obj\Debug\netcoreapp3.1\Site.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ADMIN\source\repos\ExercicioProduto\Site\obj\Debug\netcoreapp3.1\Razor\Views\Compra\Carrinho.cshtml.g.cs

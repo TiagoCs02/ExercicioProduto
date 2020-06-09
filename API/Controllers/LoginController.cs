@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using API.Models;
 using BL;
 using Context;
 using Microsoft.AspNetCore.Html;
@@ -17,9 +16,9 @@ namespace API.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private ApiContext _context;
+        private Context.ApiContext _context;
 
-        public LoginController(ApiContext context)
+        public LoginController(Context.ApiContext context)
         {
             _context = context;
         }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Models;
 using BL;
 using Context;
 using Microsoft.AspNetCore.Http;
@@ -15,8 +14,8 @@ namespace API.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private ApiContext _context;
-        public ProdutoController(ApiContext context)
+        private Context.ApiContext _context;
+        public ProdutoController(Context.ApiContext context)
         {
             _context = context;
         }
@@ -46,18 +45,18 @@ namespace API.Controllers
         }
         // PUT: api/Produto/5
         [HttpPut("{id}")]
-        public bool Put(int id, [FromBody] Cadastroproduto produto)
+        public void Put(int id, [FromBody] Cadastroproduto produto)
         {
             ProdutoBL prodBl = new ProdutoBL(_context);
-            return prodBl.updateProduto(id,produto);
+            //return prodBl.updateProduto(id,produto);
         }
 
         // DELETE: api/Produto/5
         [HttpDelete("{id}")]
-        public bool Delete(int id)
+        public void Delete(int id)
         {
             ProdutoBL prodBl = new ProdutoBL(_context);
-            return prodBl.deleteProduto(id);
+           // return prodBl.deleteProduto(id);
         }
     }
 }

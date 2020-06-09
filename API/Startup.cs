@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Models;
 using Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,7 +29,7 @@ namespace API
         {
             services.AddDbContext<ApiContext>(options =>
             {
-                options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL"));
+              options.UseSqlServer(Configuration.GetConnectionString("SQLServer"));
             });
             services.AddControllers();
             services.AddControllersWithViews()

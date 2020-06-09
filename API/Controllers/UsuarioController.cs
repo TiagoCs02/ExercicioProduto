@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Models;
 using BL;
 using Context;
 using Microsoft.AspNetCore.Http;
@@ -15,9 +14,9 @@ namespace API.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        private ApiContext _context;
+        private Context.ApiContext _context;
 
-        public UsuarioController(ApiContext context)
+        public UsuarioController(Context.ApiContext context)
         {
             _context = context;
         }
@@ -52,10 +51,10 @@ namespace API.Controllers
         public string Put(int id, [FromBody] Cadastrousuario usuario)
         {
             UsuarioBL userBl = new UsuarioBL(_context);
-            if (userBl.updateUsuario(id,usuario))
-            {
-                return "Usuario atualizado";
-            }
+            //if (userBl.updateUsuario(id,usuario))
+            //{
+             //   return "Usuario atualizado";
+            //}
             return "Falha ao atualizar usuario";
         }
 
@@ -64,10 +63,10 @@ namespace API.Controllers
         public string Delete(int id)
         {
             UsuarioBL userBl = new UsuarioBL(_context);
-            if (userBl.deleteUsuario(id))
-            {
-                return "Usuario deletado";
-            }
+            //if (userBl.deleteUsuario(id))
+            //{
+            //    return "Usuario deletado";
+            //}
             return "Falha ao deletar usuario";
         }
     }

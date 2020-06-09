@@ -1,6 +1,4 @@
-﻿using API.Models;
-using Context;
-using DAO;
+﻿using Context;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +9,6 @@ namespace BL
 {
     public class UsuarioBL
     {
-        UsuarioDAO userDAO;
 
         private ApiContext _context;
 
@@ -37,17 +34,17 @@ namespace BL
         {
             Cadastrousuario usuario = new Cadastrousuario();
 
-            usuario = _context.Cadastrousuario.Select(u => u).Where(x => x.Idusuario == id).FirstOrDefault();
+            usuario = _context.Cadastrousuario.Select(u => u).Where(x => x.IdUsuario == id).FirstOrDefault();
 
             usuario.Senha = "";
 
             return usuario;
         }
-        public bool updateUsuario(int id, Cadastrousuario usuario)
-        {
-            userDAO = new UsuarioDAO();
-            return userDAO.updateUsuario(id, usuario);
-        }
+       // public bool updateUsuario(int id, Cadastrousuario usuario)
+       // {
+       //     userDAO = new UsuarioDAO();
+      //      return userDAO.updateUsuario(id, usuario);
+       // }
         public int insertUsuario(Cadastrousuario usuario)
         {
             Cadastrousuario valUser = new Cadastrousuario();
@@ -70,10 +67,8 @@ namespace BL
                 return 2;//Erro de exception
             }
         }
-        public bool deleteUsuario(int id)
+        public void deleteUsuario(int id)
         {
-            userDAO = new UsuarioDAO();
-            return userDAO.deleteUsuario(id);
         }
     }
 }

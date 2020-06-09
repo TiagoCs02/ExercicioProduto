@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace API.Models
+namespace Models
 {
     public partial class Estoque
     {
         public DateTime Data { get; set; }
-        public int Estoqueatual { get; set; }
-        public int Estoquemin { get; set; }
-        public int? Idproduto { get; set; }
+        public int IdProduto { get; set; }
+        public int EstoqueAtual { get; set; }
+        public int EstoqueMin { get; set; }
 
-        public virtual Cadastroproduto IdprodutoNavigation { get; set; }
+        public virtual Cadastroproduto IdProdutoNavigation { get; set; }
     }
 }

@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace API.Models
+namespace Models
 {
     public partial class Cadastrofornecedor
     {
         public Cadastrofornecedor()
         {
             Cadastroproduto = new HashSet<Cadastroproduto>();
-            Pedido = new HashSet<Pedido>();
         }
 
-        public int Idfornecedor { get; set; }
+        public int IdFornecedor { get; set; }
         public string Ativo { get; set; }
         public string Bairro { get; set; }
         public string Cep { get; set; }
@@ -26,6 +25,5 @@ namespace API.Models
         public string Uf { get; set; }
 
         public virtual ICollection<Cadastroproduto> Cadastroproduto { get; set; }
-        public virtual ICollection<Pedido> Pedido { get; set; }
     }
 }
