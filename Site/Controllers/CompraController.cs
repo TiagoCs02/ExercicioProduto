@@ -15,6 +15,9 @@ namespace Site.Controllers
         public async Task<IActionResult> CarrinhoAsync()
         {
             string recebe = HttpContext.Session.GetString("_Carrinho");
+
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+
             List<Cadastroproduto> ProdutoList = new List<Cadastroproduto>();
             if(recebe != null && recebe != "")
             {

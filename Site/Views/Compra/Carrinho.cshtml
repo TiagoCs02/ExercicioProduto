@@ -37,11 +37,11 @@
                         @foreach (Models.Cadastroproduto produto in Model)
                         {
                             <tr>
-                                <th scope="row"><img src="./img/4.jpg"></th>
+                                <th scope="row"><img src="~/img/@produto.Capa"></th>
                                 <td>@produto.Nome</td>
                                 <td>@produto.Descricao</td>
                                 <td>
-                                    <input type="number" value="@produto.Quantidade" readonly />
+                                    @produto.Quantidade
                                 </td>
                                 <td class="text-center">R$@(produto.Valor * produto.Quantidade)</td>
                                 <td class="text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
@@ -66,14 +66,24 @@
                             <button type="button" class="btn btn-primary btn-lg btn-block"><b>Voltar</b></button>
                         </a>
                     </div>
-
                     <div class="col-md-2 col-xs-12 botao1">
-                        <a href="entrega.html">
-                            <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Continuar</b></button>
-                        </a>
+                        @{ if (ViewBag.Login == 1)
+                            {
 
+                                <a href="entrega.html">
+                                    <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Continuar</b></button>
+                                </a>
+
+                            }
+                            else
+                            {
+                                <a asp-controller="Login" asp-action="Index">
+                                    <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Realizar Login</b></button>
+                                </a>
+                            }
+                        }
                     </div>
-                </div>
+                    </div>
             </div>
         }
         else

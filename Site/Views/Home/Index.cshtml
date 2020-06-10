@@ -89,7 +89,7 @@
                     <div class="col-md-6 col-lg-3 col-xs-12 div_produto ">
                         <a asp-controller="Produto" asp-action="Descricao" asp-route-id="@prod.IdProduto" style="color: black;">
                             <h4 class="text-center" style="color: #771ED2; ">@prod.Nome</h4>
-                            <img src="~/img/destaque3.jpg" class="rounded mx-auto d-block" width="250" alt="...">
+                            <img src="~/img/@prod.Capa" class="rounded mx-auto d-block" width="250" alt="...">
                             <div class="div_produto1">
                                 @if (prod.valEstoque > 0)
                                 {
