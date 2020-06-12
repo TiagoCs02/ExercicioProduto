@@ -1,0 +1,51 @@
+﻿@model Models.Cadastrousuario;
+@{
+    ViewData["Title"] = "Entrega";
+    Layout = "_Site";
+}
+
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <link rel="stylesheet" href="~/css/entrega.css">
+        <title>Brasil Vinil - Entrega</title>
+    </head>
+    <body>
+        <div class="container">
+
+            <h4 class="titulo">
+                <i class="fa fa-address-book"></i>
+                Meu Endereço
+            </h4>
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <label style="font-weight: bold;">Logradrouro:</label> @Model.Logradouro<br>
+                    <label style="font-weight: bold;">Nº</label> @Model.Numero<br>
+                    <label style="font-weight: bold;">CEP:</label> @Model.Cep<br>
+                    <label style="font-weight: bold;">Cidade:</label> @Model.Cidade<br>
+                    <label style="font-weight: bold;">Estado:</label> @Model.Uf<br>          
+                </div>
+            </div>
+                            
+
+            <div class="row botao">
+                <div class="col-md-8 col-xs-12">
+                </div>
+
+                <!--<div class="col-md-2 col-xs-12 botao1">
+                    <a href="cadusuario.html">
+                        <button type="button" class="btn btn-primary btn-lg btn-block"><b>Novo Endereço</b></button>
+                    </a>
+                </div>-->
+
+                <div class="col-md-2 col-xs-12 botao1">
+                    <a asp-action="Confirmacao">
+                        <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Continuar</b></button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
+

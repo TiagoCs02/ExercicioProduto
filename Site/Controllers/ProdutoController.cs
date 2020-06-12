@@ -14,6 +14,9 @@ namespace Site.Controllers
     {
         public async Task<IActionResult> DescricaoAsync(int id)
         {
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+            ViewBag.Nome = HttpContext.Session.GetString("_Nome");
+
             Cadastroproduto produto = new Cadastroproduto();
             using (var httpClient = new HttpClient())
             {

@@ -1,0 +1,133 @@
+﻿@model List<Models.Cadastroproduto>
+@{
+    ViewData["Title"] = "Confirmacao";
+    Layout = "_Site";
+
+    Models.Endereco endereco = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.Endereco>(ViewBag.Endereco);
+
+    decimal? subtotal = 0;
+
+    decimal? frete = (decimal?)10.00;
+}
+
+<!doctype hrml>
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/confirmacao.css">
+        <title>Brasil Vinil - Confirmação</title>
+    </head>
+    <body>
+        <div class="container">
+            <h4 class="titulo_lista">Detalhes do Pedido</h4>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Imagem</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Qtd</th>
+                            <th class="text-center" scope="col">Valor</th>
+                            <th class="text-center" scope="col">
+                                <a class="editar" asp-controller="Compra" asp-action="Carrinho">Editar</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Models.Cadastroproduto produto in Model)
+                        {
+                            <tr>
+                                <th scope="row"><img src="~/img/@produto.Capa"></th>
+                                <td>@produto.Nome</td>
+                                <td>@produto.Descricao</td>
+                                <td>
+                                    @produto.Quantidade
+                                </td>
+                                <td class="text-center">R$@(produto.Valor * produto.Quantidade)</td>
+                                <td class="text-center"></td>
+                            </tr>
+                            subtotal += (produto.Valor * produto.Quantidade);
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4 col-xs-12 dados">
+                    <h4 style="color: #771ed2;">
+                        Endereço
+                        <i class="fa fa-truck" aria-hidden="true"></i>
+                        <!--<a class="editar" href="entrega.html">Editar</a>-->
+                    </h4>
+                    <div class="text">
+                        <label style="font-weight: bold;">Logradrouro:</label>
+                        <label>@endereco.Logradouro </label> <br>
+                        <label style="font-weight: bold;">Nº</label>
+                        <label>@endereco.Numero</label> <br>
+                        <label style="font-weight: bold;">CEP:</label>
+                        <label>@endereco.Cep</label> <br>
+                        <label style="font-weight: bold;">Cidade:</label>
+                        <label>@endereco.Cidade</label><br>
+                        <label style="font-weight: bold;">Estado:</label>
+                        <label>@endereco.Uf</label>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-xs-12 dados">
+                    <h4 style="color: #771ed2;">
+                        Dados
+                    </h4>
+                    <div class="text">
+                        <label style="font-weight: bold;">Nome:</label>
+                        <label>Bruno </label> <br>
+                        <label style="font-weight: bold;">Sobrenome:</label>
+                        <label>Ribeiro</label> <br>
+                        <label style="font-weight: bold;">CPF:</label>
+                        <label>49700010020</label>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4 col-xs-12 dados">
+                    <h4 style="color: #771ed2;">
+                        Pagamento
+                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                        <!--<a class="editar" href="formdepag.html">Editar</a>-->
+                    </h4>
+                    <div class="text">
+                        <label style="font-weight: bold;">Subtotal</label>
+                        <span style="font-size: 20px; color: orange; font-weight: bold;">R$ @subtotal</span> (@Model.Count Itens)
+                        <br>
+                        <label style="font-weight: bold;">Frete</label>
+                        <span style="font-size: 20px; color: orange; font-weight: bold;">R$ @frete</span>
+                        <br>
+                        <label style="font-weight: bold;">Total</label>
+                        <span style="font-size: 20px; color: orange; font-weight: bold;">R$ @(frete + subtotal)</span> (@Model.Count Itens + Frete)            </p>
+                        <p style="font-size: 12px; color: silver;">FORMA DE PG QUE FOI SELECIONADA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                </div>
+                <div class="col-md-2 col-xs-12 botao1">
+                    <a href="cadusuario.html">
+                        <button type="button" class="btn btn-primary btn-lg btn-block"><b>Voltar</b></button>
+                    </a>
+                </div>
+
+                <div class="col-md-2 col-xs-12 botao1">
+                    <a href="meupedido.html">
+                        <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Finalizar Pedido</b></button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
+

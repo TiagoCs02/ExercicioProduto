@@ -36,6 +36,8 @@ namespace Site.Controllers
                             string respostaAPIUser = await responseUser.Content.ReadAsStringAsync();
                             usuarioGet = JsonConvert.DeserializeObject<Cadastrousuario>(respostaAPIUser);
                             HttpContext.Session.SetString("_Nome", usuarioGet.Nome);
+                            HttpContext.Session.SetInt32("_IdUser", usuarioGet.IdUsuario);
+
                         }
 
                             HttpContext.Session.SetInt32("_Login", 1);
@@ -72,6 +74,7 @@ namespace Site.Controllers
                     HttpContext.Session.SetString("_Msg", "Senhas não são iguais");
                     return RedirectToAction("cadUsuario");
                 }
+                usuario.Tipo = "1";
                 using (var responseLogin = await httpClient.PostAsync("https://localhost:44308/api/usuario/", usuario, new JsonMediaTypeFormatter()))
                 {
 
