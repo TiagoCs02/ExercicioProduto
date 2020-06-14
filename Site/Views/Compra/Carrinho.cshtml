@@ -69,10 +69,38 @@
                     <div class="col-md-2 col-xs-12 botao1">
                         @{ if (ViewBag.Login == 1)
                             {
+                                switch (ViewBag.Passo)
+                                {
+                                    case null:
+                                        
+                                        <a asp-controller="Compra" asp-action="Entrega">
+                                            <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Continuar</b></button>
+                                        </a>
+                                        
+                                        break;
+                                    case 1:
+                                        
+                                        <a asp-controller="Compra" asp-action="Entrega">
+                                            <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Continuar</b></button>
+                                        </a>
+                                        
+                                        break;
+                                    case 2:
+                                        
+                                        <a asp-controller="Compra" asp-action="FormDePag">
+                                            <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Continuar</b></button>
+                                        </a>
+                                        
+                                        break;
+                                    case 3:
+                                        
+                                        <a asp-controller="Compra" asp-action="Confirmacao">
+                                            <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Continuar</b></button>
+                                        </a>
+                                        
+                                        break;
+                                }
 
-                                <a asp-controller="Compra" asp-action="Entrega">
-                                    <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Continuar</b></button>
-                                </a>
 
                             }
                             else

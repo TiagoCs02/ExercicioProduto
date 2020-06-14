@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewData["Title"] = "FormDePag";
+    Layout = "_Site";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/formdepag.css">
+
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script src="https://kit.fontawesome.com/4fc6104bc0.js" crossorigin="anonymous"></script>
+
+    <title>Brasil Vinil - Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-xs-12">
+                <h2 class="titulo">Forma de Pagamento</h2>
+                <div id="metodosdepagamento">
+                    <div style="padding: 10px;">
+                        <input type="radio" name="metododepagamento" value="credito" id="credcard">
+                        <label for="credcard" id="label_credcard">Cartão de Crédito</label><br>
+                        <input type="radio" name="metododepagamento" value="boleto" id="boleto">
+                        <label for="boleto" id="label_boleto">Boleto</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-xs-12">
+                <form name="pagamento">
+                    <div id="cartoes">
+                        <div style="display: inline-block;">
+                            <label for="cardnumber"><b>Número do Cartão:</b></label><br>
+                            <input type="text" class="form-control form-control-sm" name="cardnumber" id="cardnumber" onkeypress="return onlynumber();" maxlength="16" placeholder="0000 0000 0000 0000">
+                        </div>
+
+                        <div style="display: inline-block;">
+                            <label><b>Bandeira:</b></label><br>
+                            <select name="bandeira" class="form-control form-control-sm">
+                                <option disabled selected value="">Selecionar...</option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                            </select>
+                        </div>
+                        <br><br>
+                        <label><b>Títular do Cartão:</b></label><br>
+                        <input type="text" class="form-control form-control-sm" name="donocard" id="donocard" placeholder="Nome do títular"><br>
+
+                        <div style="display: inline-block;">
+                            <label><b>Validade:</b></label><br>
+                            <input type="text" class="form-control form-control-sm" name="validade" class="validade" placeholder="MM/AA" maxlength="5">
+                        </div>
+                        <Br>
+                        <div style="display: inline-block;">
+                            <label><b>CVC:</b></label>
+                            <input type="text" class="form-control form-control-sm" name="SegCode" placeholder="Código de Segurança">
+                        </div>
+                    </div>
+                </form>
+                <form name="pagamento" asp-action="GuardaForma" method="post">
+                    <div id="bolet">
+                        <label><b>Nome:</b></label><br>
+                        <input type="text" class="form-control form-control-sm" name="Nome" placeholder="Seu Nome"><br>
+                        <label><b>Sobrenome:</b></label><br>
+                        <input type="text" class="form-control form-control-sm" name="Sobrenome" placeholder="Sobrenome"><br>
+                        <label><b>CPF:</b></label><br>
+                        <input type="text" name="CPF" class="form-control form-control-sm" placeholder="Ex.: 00.000.000-0" maxlength="12"><br>
+                        <div class="botao1">
+                            <input type="submit" class="btn btn-secondary btn-lg btn-block" value="Continuar">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row botao">
+            <div class="col-md-8 col-xs-12">
+            </div>
+            <div class="col-md-2 col-xs-12 botao1">
+                <a asp-action="Entrega">
+                    <button type="button" class="btn btn-primary btn-lg btn-block"><b>Voltar</b></button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#credcard").on("click", function () {
+            $("#cartoes").css("display", "block"), $("#bolet").css("display", "none")
+        });
+        $("#boleto").on("click", function () {
+            $("#cartoes").css("display", "none")
+        });
+        $("#boleto").on("click", function () {
+            $("#bolet").css("display", "block")
+        });
+    </script>
+</body>
+

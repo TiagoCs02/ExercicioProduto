@@ -5,6 +5,8 @@
 
     Models.Endereco endereco = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.Endereco>(ViewBag.Endereco);
 
+    Models.Pagamento dados = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.Pagamento>(ViewBag.Dados);
+
     decimal? subtotal = 0;
 
     decimal? frete = (decimal?)10.00;
@@ -81,11 +83,11 @@
                     </h4>
                     <div class="text">
                         <label style="font-weight: bold;">Nome:</label>
-                        <label>Bruno </label> <br>
+                        <label>@dados.Nome </label> <br>
                         <label style="font-weight: bold;">Sobrenome:</label>
-                        <label>Ribeiro</label> <br>
+                        <label>@dados.Sobrenome</label> <br>
                         <label style="font-weight: bold;">CPF:</label>
-                        <label>49700010020</label>
+                        <label>@dados.CPF</label>
                     </div>
                 </div>
 
@@ -114,13 +116,13 @@
                 <div class="col-md-8 col-xs-12">
                 </div>
                 <div class="col-md-2 col-xs-12 botao1">
-                    <a href="cadusuario.html">
+                    <a asp-action="FormDePag">
                         <button type="button" class="btn btn-primary btn-lg btn-block"><b>Voltar</b></button>
                     </a>
                 </div>
 
                 <div class="col-md-2 col-xs-12 botao1">
-                    <a href="meupedido.html">
+                    <a asp-action="FinalizaCompra">
                         <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Finalizar Pedido</b></button>
                     </a>
 

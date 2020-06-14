@@ -10,6 +10,7 @@ namespace Models
         {
             Estoque = new HashSet<Estoque>();
             Movimentacao = new HashSet<Movimentacao>();
+            Detalhepedido = new HashSet<Detalhepedido>();
         }
 
         public int IdProduto { get; set; }
@@ -26,6 +27,7 @@ namespace Models
         public virtual Cadastrofornecedor IdFornecedorNavigation { get; set; }
         public virtual ICollection<Estoque> Estoque { get; set; }
         public virtual ICollection<Movimentacao> Movimentacao { get; set; }
+        public virtual ICollection<Detalhepedido> Detalhepedido { get; set; }
 
         [NotMapped]
         public int valEstoque { get; set; }

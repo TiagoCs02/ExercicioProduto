@@ -11,6 +11,8 @@
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+    <!--Necessário-->
+    <link rel="stylesheet" href="~/css/comum.css">
 </head>
 <body>
     <header>
@@ -80,7 +82,7 @@
             @{
                 if (ViewBag.Login == 1)
                 {
-                    <a class="nav-link-submenu" href="#">
+                    <a class="nav-link-submenu" asp-controller="Pedido" asp-action="MeusPedidos">
                         <i class="fa fa-truck" aria-hidden="true"></i> Meus Pedidos
                     </a>
                 }

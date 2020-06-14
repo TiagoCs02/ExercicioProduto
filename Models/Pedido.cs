@@ -8,6 +8,7 @@ namespace Models
         public Pedido()
         {
             Movimentacao = new HashSet<Movimentacao>();
+            Detalhepedido = new HashSet<Detalhepedido>();
         }
 
         public int IdPedido { get; set; }
@@ -19,5 +20,6 @@ namespace Models
 
         public virtual Cadastrousuario IdUsuarioNavigation { get; set; }
         public virtual ICollection<Movimentacao> Movimentacao { get; set; }
+        public virtual ICollection<Detalhepedido> Detalhepedido { get; set; }
     }
 }

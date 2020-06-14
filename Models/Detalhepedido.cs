@@ -5,6 +5,7 @@ namespace Models
 {
     public partial class Detalhepedido
     {
+        public int IdDetPed { get; set; }
         public int IdPedido { get; set; }
         public int IdProduto { get; set; }
         public int Quantidade { get; set; }

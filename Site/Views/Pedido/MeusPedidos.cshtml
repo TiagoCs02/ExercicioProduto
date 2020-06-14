@@ -1,0 +1,56 @@
+﻿@model  List<Models.Pedido>
+@{
+    ViewData["Title"] = "MeusPedidos";
+    Layout = "_Site";
+}
+<head>
+    <link rel="stylesheet" href="~/css/controle.css">
+    <title>Brasil Vinil - Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+
+            <h4 style="color: #771ed2; margin-top: 50px;">Minhas Compras</h4>
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Data</th>
+                            <th class="text-center" scope="col">Nº Nota</th>
+                            <th class="text-center" scope="col">Valor</th>
+                            <th class="text-center" scope="col">Qtd.</th>
+                            <th class="text-center" scope="col">Forma de Pagamento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ foreach (Models.Pedido pedido in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@pedido.Data.ToShortDateString()</th>
+                                    @foreach(Models.Movimentacao movimentacao in pedido.Movimentacao)
+                                    {
+                                        if(movimentacao.IdPedido == pedido.IdPedido)
+                                        {
+                                            <td class="text-center">@movimentacao.Nf</td>
+                                        }
+                                    }
+                                    <td class="text-center">@pedido.ValorTotal</td>
+                                    <td class="text-center">@pedido.Detalhepedido.Count Itens</td>
+                                    <td class="text-center">Boleto</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>

@@ -24,15 +24,6 @@ namespace Context
         public virtual DbSet<Movimentacao> Movimentacao { get; set; }
         public virtual DbSet<Pedido> Pedido { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("server=(local);database=Projeto;integrated security=yes;");
-            }
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Cadastrofornecedor>(entity =>
@@ -292,9 +283,12 @@ namespace Context
 
             modelBuilder.Entity<Detalhepedido>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.IdDetPed)
+                    .HasName("PK_DetPed");
 
                 entity.ToTable("detalhepedido");
+
+                entity.Property(e => e.IdDetPed).HasColumnName("idDetPed");
 
                 entity.Property(e => e.IdPedido).HasColumnName("idPedido");
 
@@ -303,13 +297,13 @@ namespace Context
                 entity.Property(e => e.Quantidade).HasColumnName("quantidade");
 
                 entity.HasOne(d => d.IdPedidoNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Detalhepedido)
                     .HasForeignKey(d => d.IdPedido)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_PedidoDetPed");
 
                 entity.HasOne(d => d.IdProdutoNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Detalhepedido)
                     .HasForeignKey(d => d.IdProduto)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ProdutoDetPed");

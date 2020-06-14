@@ -14,8 +14,8 @@ namespace API.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private Context.ApiContext _context;
-        public ProdutoController(Context.ApiContext context)
+        private ApiContext _context;
+        public ProdutoController(ApiContext context)
         {
             _context = context;
         }
