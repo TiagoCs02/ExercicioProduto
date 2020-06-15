@@ -27,4 +27,6 @@ Com isso é apenas necessário clicar no botão de iniciar e o site será iniciado n
 
 ## Configurações
 
-O site atualmente não está cadastrando produtos, portanto para ter todas as funções é necessário pelo menos um produto e fornecedor cadastrado no banco de dados, recomendado tbm inserir estoques para possibilitar o teste de pedidos.
+O site atualmente não está cadastrando produtos, portanto para ter todas as funções é necessário pelo menos um produto e fornecedor cadastrado no banco de dados, recomendado também inserir estoques para possibilitar o teste de pedidos.
+
+Capas são inseridas apenas com o nome do arquivo e extenção, como "imagem.jpg".
