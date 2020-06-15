@@ -169,7 +169,7 @@ namespace Site.Controllers
                         HttpContext.Session.Remove("_Endereco");
                         HttpContext.Session.Remove("_Dados");
 
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("MeusPedidos", "Pedido");
                     }
                     else
                     {

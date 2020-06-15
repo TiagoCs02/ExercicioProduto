@@ -62,6 +62,14 @@ namespace BL
 
             return produto;
         }
+        public List<Cadastroproduto> getProdutoCategoria(string categoria)
+        {
+            List<Cadastroproduto> prodList = new List<Cadastroproduto>();
+
+            prodList = _context.Cadastroproduto.Select(p => p).Where(x => x.Categoria == categoria).ToList();
+
+            return prodList;
+        }
         public void updateProduto(int id, Cadastroproduto produto)
         {
         }

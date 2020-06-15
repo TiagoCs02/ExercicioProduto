@@ -27,13 +27,21 @@
             </div>
             <div class="col-md-4 col-xs-12 div_botao">
                 <p class="text-left div_preco "><b>R$@Model.Valor</b></p>
-                <a asp-controller="Produto" asp-action="AddCarrinho" asp-route-id="@Model.IdProduto">
-                    <button type="submit"  class="btn btn-primary btn-lg btn-block">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <b>ADICIONAR AO CARRINHO</b>
-                    </button>
-                </a>
-                <button type="button" class="btn btn-secondary btn-lg btn-block"><b>COMPRAR</b></button>
+                @{ if (Model.valEstoque == 1)
+                    {
+                        <a asp-controller="Produto" asp-action="AddCarrinho" asp-route-id="@Model.IdProduto">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <b>ADICIONAR AO CARRINHO</b>
+                            </button>
+                        </a>
+                        <!--<button type="button" class="btn btn-secondary btn-lg btn-block"><b>COMPRAR</b></button>-->
+                    }
+                    else
+                    {
+                        <p class="text-left div_preco "><b>Indisponível</b></p>
+                    }
+                }
             </div>
         </div>
     </div>

@@ -26,6 +26,12 @@ namespace API.Controllers
             ProdutoBL prodBl = new ProdutoBL(_context);
             return prodBl.getProdutos();
         }
+        [HttpGet("categoria/{categoria}")]
+        public IEnumerable<Cadastroproduto> GetPorCategoria(string categoria)
+        {
+            ProdutoBL prodBl = new ProdutoBL(_context);
+            return prodBl.getProdutoCategoria(categoria);
+        }
 
         // GET: api/Produto/5
         [HttpGet("{id}")]

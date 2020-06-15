@@ -33,13 +33,15 @@
                     <tbody>
                         @{ foreach (Models.Pedido pedido in Model)
                             {
+                                bool nf = false;
                                 <tr>
                                     <th scope="row">@pedido.Data.ToShortDateString()</th>
                                     @foreach(Models.Movimentacao movimentacao in pedido.Movimentacao)
                                     {
-                                        if(movimentacao.IdPedido == pedido.IdPedido)
+                                        if(movimentacao.IdPedido == pedido.IdPedido && !nf)
                                         {
                                             <td class="text-center">@movimentacao.Nf</td>
+                                            nf = true;
                                         }
                                     }
                                     <td class="text-center">@pedido.ValorTotal</td>

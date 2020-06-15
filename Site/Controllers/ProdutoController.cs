@@ -31,41 +31,133 @@ namespace Site.Controllers
             return View(produto);
         }
 
-        public IActionResult AddCarrinho(int id)
+        public async Task<IActionResult> AddCarrinhoAsync(int id)
         {
             List<Carrinho> CarrinhoList = new List<Carrinho>();
+            List<Carrinho> CarrinhoListNew = new List<Carrinho>();
+            Estoque estoque = new Estoque();
+            bool notnovo = false;
             if (HttpContext.Session.GetString("_Carrinho") == null || HttpContext.Session.GetString("_Carrinho") == "")
             {
                 Carrinho carrinho = new Carrinho();
                 carrinho.IdProduto = id;
                 carrinho.Quantidade = 1;
-                CarrinhoList.Add(carrinho);
+                CarrinhoListNew.Add(carrinho);
             }
             else
             {
                 string recebe = HttpContext.Session.GetString("_Carrinho");
                 CarrinhoList = JsonConvert.DeserializeObject<List<Carrinho>>(recebe);
-                foreach(Carrinho carrinho in CarrinhoList)
+                foreach (Carrinho carrinho in CarrinhoList)
                 {
-                    if(carrinho.IdProduto == id)
+                    using (var httpClient = new HttpClient())
                     {
-                        carrinho.Quantidade += 1;
+                        using (var response = await httpClient.GetAsync("https://localhost:44308/api/estoque/produto/"+ carrinho.IdProduto.ToString()))
+                        {
+
+                            string respostaAPI = await response.Content.ReadAsStringAsync();
+                            estoque = JsonConvert.DeserializeObject<Estoque>(respostaAPI);
+
+                        }
+                    }
+                    if (carrinho.IdProduto == id)
+                    {
+                        if ((estoque.EstoqueAtual - estoque.EstoqueMin) >= (carrinho.Quantidade + 1))
+                        {
+                            carrinho.Quantidade += 1;
+                        }
+                        CarrinhoListNew.Add(carrinho);
+                        notnovo = true;
                     }
                     else
                     {
-                        Carrinho NewCarrinho = new Carrinho();
-                        NewCarrinho.IdProduto = id;
-                        NewCarrinho.Quantidade = 1;
-                        CarrinhoList.Add(NewCarrinho);
+                        CarrinhoListNew.Add(carrinho);
                     }
                 }
-
+                if (!notnovo) { 
+                    Carrinho carrinhoNew = new Carrinho();
+                    carrinhoNew.IdProduto = id;
+                    carrinhoNew.Quantidade = 1;
+                    CarrinhoListNew.Add(carrinhoNew);
+                }
             }
-            string envio = JsonConvert.SerializeObject(CarrinhoList);
+            string envio = JsonConvert.SerializeObject(CarrinhoListNew);
 
             HttpContext.Session.SetString("_Carrinho", envio);
 
             return RedirectToAction("Carrinho", "Compra");
         }
+
+        public IActionResult MenosCarrinho(int id)
+        {
+            List<Carrinho> CarrinhoList = new List<Carrinho>();
+            List<Carrinho> CarrinhoListNew = new List<Carrinho>();
+            bool notnovo = false;
+            string recebe = HttpContext.Session.GetString("_Carrinho");
+            CarrinhoList = JsonConvert.DeserializeObject<List<Carrinho>>(recebe);
+
+            foreach (Carrinho carrinho in CarrinhoList)
+            {
+                if (carrinho.IdProduto == id)
+                {
+                    carrinho.Quantidade -= 1;
+                    if (carrinho.Quantidade != 0)
+                    {
+                        CarrinhoListNew.Add(carrinho);
+                    }
+                    notnovo = true;
+                }
+                else
+                {
+                    CarrinhoListNew.Add(carrinho);
+                }
+            }
+            string envio = JsonConvert.SerializeObject(CarrinhoListNew);
+
+            HttpContext.Session.SetString("_Carrinho", envio);
+
+            return RedirectToAction("Carrinho", "Compra");
+        }
+
+        public async Task<IActionResult> ProdutosAsync()
+        {
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+            ViewBag.Nome = HttpContext.Session.GetString("_Nome");
+
+            List<Cadastroproduto> prodList = new List<Cadastroproduto>();
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://localhost:44308/api/produto"))
+                {
+
+                    string respostaAPI = await response.Content.ReadAsStringAsync();
+                    prodList = JsonConvert.DeserializeObject<List<Cadastroproduto>>(respostaAPI);
+
+                }
+            }
+            return View(prodList);
+        }
+
+        public async Task<IActionResult> CategoriaAsync(string categoria)
+        {
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+            ViewBag.Nome = HttpContext.Session.GetString("_Nome");
+
+            List<Cadastroproduto> prodList = new List<Cadastroproduto>();
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://localhost:44308/api/produto/categoria/" + categoria))
+                {
+
+                    string respostaAPI = await response.Content.ReadAsStringAsync();
+                    prodList = JsonConvert.DeserializeObject<List<Cadastroproduto>>(respostaAPI);
+
+                }
+            }
+
+            return View(prodList);
+        }
+
     }
 }

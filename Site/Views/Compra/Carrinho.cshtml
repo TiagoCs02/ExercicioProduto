@@ -37,13 +37,19 @@
                         @foreach (Models.Cadastroproduto produto in Model)
                         {
                             <tr>
-                                <th scope="row"><img src="~/img/@produto.Capa"></th>
+                                <td scope="row"><img src="~/img/@produto.Capa"></td>
                                 <td>@produto.Nome</td>
                                 <td>@produto.Descricao</td>
-                                <td>
+                                <td width="10%">
                                     @produto.Quantidade
+                                    <a asp-controller="Produto" asp-action="AddCarrinho" asp-route-id="@produto.IdProduto">
+                                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                    </a>
+                                    <a asp-controller="Produto" asp-action="MenosCarrinho" asp-route-id="@produto.IdProduto">
+                                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                    </a>
                                 </td>
-                                <td class="text-center">R$@(produto.Valor * produto.Quantidade)</td>
+                                <td class="text-center" width="20%">R$@(produto.Valor * produto.Quantidade)</td>
                                 <td class="text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
                             </tr>
                             valor = valor + (produto.Valor * produto.Quantidade);
@@ -62,7 +68,7 @@
                     <div class="col-md-8 col-xs-12 ">
                     </div>
                     <div class="col-md-2 col-xs-12 botao1">
-                        <a href="descricao.html">
+                        <a asp-controller="Home" asp-action="Index">
                             <button type="button" class="btn btn-primary btn-lg btn-block"><b>Voltar</b></button>
                         </a>
                     </div>
@@ -121,7 +127,7 @@
                 <img src="~/icon/alert-triangle.svg">
                 <br>
                 <p style="margin-top: 25px;">
-                    Volte para <a asp-controller="Home" asp-action="Index">Página Inícial</a> ou para <a href="categoria.html">Páginas de Categorias</a>
+                    Volte para <a asp-controller="Home" asp-action="Index">Página Inícial</a> <!--ou para <a href="categoria.html">Páginas de Categorias</a>-->
                 </p>
             </div>
         }

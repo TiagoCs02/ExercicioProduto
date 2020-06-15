@@ -1,0 +1,41 @@
+﻿@model List<Models.Cadastroproduto>
+@{
+    ViewData["Title"] = "Produtos";
+    Layout = "_Site";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/home.css">
+    <title>Brasil Vinil - Produtos</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center" id="titulo"><b>Nossos Discos</b></h1>
+        <!--discos-->
+        <div class="row">
+            @{ foreach (Models.Cadastroproduto produto in Model) 
+                {
+                    <div class="col-md-6 col-lg-3 col-xs-12 div_produto ">
+                        <a asp-controller="Produto" asp-action="Descricao" asp-route-id="@produto.IdProduto" style="color: black;">
+                            <h4 class="text-center" style="color: #771ED2; ">@produto.Nome</h4>
+                            <img src="~/img/@produto.Capa" class="rounded mx-auto d-block" width="250" alt="..."/>
+                            <div class="div_produto1">
+                                @if (produto.valEstoque > 0)
+                                {
+                                    <h4 class="text-center" style="color: #ff6914;">R$@produto.Valor</h4>
+                                }
+                                else
+                                {
+                                    <h4 class="text-center" style="color: #ff6914;"> Produto Indisponível </h4>
+                                }
+                                <b>@produto.Artista</b>
+                                <label>@produto.Descricao</label>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }   
+        </div>
+    </div>
+</body>
+

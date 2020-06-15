@@ -45,40 +45,48 @@
 
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col mb-4">
-                <div class="card">
-                    <img src="./img/cateRock.jpg" class="card-img-top" height="200" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>ROCK</b></h5>
-                        <p class="card-text">Encontrei aqui seus melhores discos de Rock</p>
+                <a asp-controller="Produto" asp-action="Categoria" asp-route-categoria="Rock">
+                    <div class="card">
+                        <img src="~/img/cateRock.jpg" class="card-img-top" height="200" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>ROCK</b></h5>
+                            <p class="card-text">Encontrei aqui seus melhores discos de Rock</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col mb-4">
-                <div class="card">
-                    <img src="./img/catPop.jpg" class="card-img-top" height="200" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>POP</b></h5>
-                        <p class="card-text">Pop sempre com você</p>
+                <a asp-controller="Produto" asp-action="Categoria" asp-route-categoria="Pop">
+                    <div class="card">
+                        <img src="~/img/catPop.jpg" class="card-img-top" height="200" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>POP</b></h5>
+                            <p class="card-text">Pop sempre com você</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col mb-4">
-                <div class="card">
-                    <img src="./img/catPop.jpg" class="card-img-top" height="200" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>MPB</b></h5>
-                        <p class="card-text">Encontrei aqui seus melhores discos de MPB</p>
+                <a asp-controller="Produto" asp-action="Categoria" asp-route-categoria="MPB">
+                    <div class="card">
+                        <img src="~/img/catPop.jpg" class="card-img-top" height="200" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>MPB</b></h5>
+                            <p class="card-text">Encontrei aqui seus melhores discos de MPB</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col mb-4">
-                <div class="card">
-                    <img src="~/img/cateRock.jpg" class="card-img-top" height="200" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>SAMBA</b></h5>
-                        <p class="card-text">Encontrei aqui seus melhores discos de SAMBA</p>
+                <a asp-controller="Produto" asp-action="Categoria" asp-route-categoria="Samba">
+                    <div class="card">
+                        <img src="~/img/cateRock.jpg" class="card-img-top" height="200" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>SAMBA</b></h5>
+                            <p class="card-text">Encontrei aqui seus melhores discos de SAMBA</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <h1 class="text-center" id="titulo"><b>Os Mais Vendidos</b></h1>

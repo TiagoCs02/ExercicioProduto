@@ -28,5 +28,13 @@ namespace BL
             }
             return pedList;
         }
+        public Pedido getPedidoUltimo()
+        {
+            Pedido ped = new Pedido();
+
+            ped = _context.Pedido.Select(x => x).OrderByDescending(p => p.Data).FirstOrDefault();
+
+            return ped;
+        }
     }
 }

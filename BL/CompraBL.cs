@@ -17,13 +17,15 @@ namespace BL
 
         public int insertCompra(Pedido ped, List<Cadastroproduto> prodList)
         {
+            PedidoBL pedBl = new PedidoBL(_context);
+            EstoqueBL estBl = new EstoqueBL(_context);
             if(ped == null)
             {
                 return 0;
             }
             _context.Add<Pedido>(ped);
             _context.SaveChanges();
-            Pedido pedido = _context.Pedido.Select(x => x).OrderByDescending(p => p.Data).FirstOrDefault();
+            Pedido pedido = pedBl.getPedidoUltimo();
             var nf = 1;
             Movimentacao movimentacao = _context.Movimentacao.Select(x => x).Where(m => m.Tipo == "Saida").OrderByDescending(y => y.IdMovimentacao).FirstOrDefault();
             if (movimentacao != null)
@@ -40,7 +42,7 @@ namespace BL
                 };
                 _context.Add(detPed);
 
-                Estoque est = _context.Estoque.Select(x => x).Where(e => e.IdProduto == produto.IdProduto).OrderByDescending(y => y.Data).FirstOrDefault();
+                Estoque est = estBl.getEstoqueProduto(produto.IdProduto);
 
                 est.EstoqueAtual = est.EstoqueAtual - produto.Quantidade;
                 est.Data = DateTime.Now;
