@@ -31,25 +31,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @{ foreach (Models.Pedido pedido in Model)
-                            {
-                                bool nf = false;
-                                <tr>
-                                    <th scope="row">@pedido.Data.ToShortDateString()</th>
-                                    @foreach(Models.Movimentacao movimentacao in pedido.Movimentacao)
-                                    {
-                                        if(movimentacao.IdPedido == pedido.IdPedido && !nf)
+                        @{ if (Model.Count != 0) {
+                                foreach (Models.Pedido pedido in Model)
+                                {
+                                    bool nf = false;
+                                    <tr>
+                                        <th scope="row">@pedido.Data.ToShortDateString()</th>
+                                        @foreach (Models.Movimentacao movimentacao in pedido.Movimentacao)
                                         {
-                                            <td class="text-center">@movimentacao.Nf</td>
-                                            nf = true;
+                                            if (movimentacao.IdPedido == pedido.IdPedido && !nf)
+                                            {
+                                                <td class="text-center">@movimentacao.Nf</td>
+                                                nf = true;
+                                            }
                                         }
+                                        <td class="text-center">@pedido.ValorTotal</td>
+                                        <td class="text-center">@pedido.Detalhepedido.Count Itens</td>
+                                        <td class="text-center">Boleto</td>
+                                    </tr>
                                     }
-                                    <td class="text-center">@pedido.ValorTotal</td>
-                                    <td class="text-center">@pedido.Detalhepedido.Count Itens</td>
-                                    <td class="text-center">Boleto</td>
-                                </tr>
+                                }
                             }
-                        }
                     </tbody>
                 </table>
             </div>
