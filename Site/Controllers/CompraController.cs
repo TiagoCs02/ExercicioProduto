@@ -77,6 +77,8 @@ namespace Site.Controllers
 
         public async Task<IActionResult> ConfirmacaoAsync()
         {
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+            ViewBag.Nome = HttpContext.Session.GetString("_Nome");
             string recebe = HttpContext.Session.GetString("_Carrinho");
             ViewBag.Endereco = HttpContext.Session.GetString("_Endereco");
             ViewBag.Dados = HttpContext.Session.GetString("_Dados");

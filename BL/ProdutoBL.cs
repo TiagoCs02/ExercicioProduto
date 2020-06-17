@@ -66,7 +66,20 @@ namespace BL
         {
             List<Cadastroproduto> prodList = new List<Cadastroproduto>();
 
-            prodList = _context.Cadastroproduto.Select(p => p).Where(x => x.Categoria == categoria).ToList();
+            prodList = _context.Cadastroproduto.Select(p => p).Where(x => x.Categoria == categoria).Include(x => x.Estoque).ToList();
+
+            foreach (Cadastroproduto produto in prodList)
+            {
+                var estoque = produto.Estoque.OrderByDescending(e => e.Data).FirstOrDefault();
+                if (estoque.EstoqueAtual >= estoque.EstoqueMin)
+                {
+                    produto.valEstoque = 1;
+                }
+                else
+                {
+                    produto.valEstoque = 0;
+                }
+            }
 
             return prodList;
         }
