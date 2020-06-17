@@ -5,7 +5,7 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/css/home.css">
+    <link rel="stylesheet" href="~/css/produtos.css">
     <title>Brasil Vinil - Produtos</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
                     <div class="col-md-6 col-lg-3 col-xs-12 div_produto ">
                         <a asp-controller="Produto" asp-action="Descricao" asp-route-id="@produto.IdProduto" style="color: black;">
                             <h4 class="text-center" style="color: #771ED2; ">@produto.Nome</h4>
-                            <img src="~/img/@produto.Capa" class="rounded mx-auto d-block" width="250" alt="..."/>
+                            <img src="~/img/@produto.Capa" class="rounded mx-auto d-block" width="220" alt="..."/>
                             <div class="div_produto1">
                                 @if (produto.valEstoque > 0)
                                 {

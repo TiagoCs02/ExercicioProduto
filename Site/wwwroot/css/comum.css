@@ -25,5 +25,7 @@
     height: 45px;
     background-color: #ff6914;
     color: white;
+    margin-bottom: 0;
     text-align: center;
+    position: absolute;
 }

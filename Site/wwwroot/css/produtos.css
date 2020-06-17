@@ -1,16 +1,19 @@
-.container{
+﻿.container {
     margin-top: 2%;
 }
+
 .bg-orange {
     background-color: #ff6914;
 }
-.div_produto{
+
+.div_produto {
     display: inline-block;
     justify-content: center;
     text-align: center;
     padding: 5px;
 }
-.div_produto1{
+
+.div_produto1 {
     display: inline-block;
     justify-content: center;
     padding: 5px;
@@ -20,64 +23,66 @@
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 20px;
 }
-.card{
+
+.card {
     margin: 12px;
 }
+
 .footer {
     margin-top: 5%;
     padding: 10px 15px;
     grid-area: foot;
-    position: relative;
     bottom: 0px;
     height: 75px;
     width: 100%;
     background-color: #ff6914;
     color: white;
     text-align: center;
- }
-
- .footer .row {
-     margin-top: 20px;
- }
-
- .footer i {
-     margin-top: 10px;
-     margin-right: 5px;
- }
-
- .footer a {  
-    color: #771ed2;
-    text-decoration: none;
- }
- .nav-link {
-   background-color: #ff6914;
-   color: white; 
-   font-weight: bold;
-   
 }
 
- .nav-link a{
-     background-color: #ff6914;
-    color: white; 
+    .footer .row {
+        margin-top: 20px;
+    }
+
+    .footer i {
+        margin-top: 10px;
+        margin-right: 5px;
+    }
+
+    .footer a {
+        color: #771ed2;
+        text-decoration: none;
+    }
+
+.nav-link {
+    background-color: #ff6914;
+    color: white;
     font-weight: bold;
-    
-    
 }
-.card-title{
+
+    .nav-link a {
+        background-color: #ff6914;
+        color: white;
+        font-weight: bold;
+    }
+
+.card-title {
     font-family: 'Archivo Narrow', sans-serif;
     color: #771ed2;
     font-size: 20px;
 }
-#titulo{
+
+#titulo {
     font-family: 'Bree Serif', serif;
     font-size: 25px;
-    
 }
-.bg-silver{
+
+.bg-silver {
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
 }
-.nav-link-submenu{
+
+.nav-link-submenu {
     display: block;
     font-size: 14px;
     padding: 3px;
@@ -91,5 +96,4 @@
     box-sizing: border-box;
     line-height: 1.3;
     z-index: 1
-   
 }
