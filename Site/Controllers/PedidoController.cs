@@ -31,5 +31,23 @@ namespace Site.Controllers
             }
             return View(pedList);
         }
+        public async Task<IActionResult> DetalhesPedidoAsync(int id)
+        {
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+            ViewBag.Nome = HttpContext.Session.GetString("_Nome");
+
+            Pedido pedido = new Pedido();
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://localhost:44308/api/pedido/detalhes/" + id))
+                {
+
+                    string respostaAPI = await response.Content.ReadAsStringAsync();
+                    pedido = JsonConvert.DeserializeObject<Pedido>(respostaAPI);
+
+                }
+            }
+            return View(pedido);
+        }
     }
 }

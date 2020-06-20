@@ -41,13 +41,15 @@
                                 <td>@produto.Nome</td>
                                 <td>@produto.Descricao</td>
                                 <td width="10%">
-                                    @produto.Quantidade
-                                    <a asp-controller="Produto" asp-action="AddCarrinho" asp-route-id="@produto.IdProduto">
-                                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                                    </a>
-                                    <a asp-controller="Produto" asp-action="MenosCarrinho" asp-route-id="@produto.IdProduto">
-                                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                    </a>
+                                    <span style="padding-right:10px">@produto.Quantidade</span>
+                                    <span>
+                                        <a asp-controller="Produto" asp-action="AddCarrinho" asp-route-id="@produto.IdProduto">
+                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                        </a>   
+                                        <a asp-controller="Produto" asp-action="MenosCarrinho" asp-route-id="@produto.IdProduto">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                        </a>
+                                    </span>
                                 </td>
                                 <td class="text-center" width="20%">R$@(produto.Valor * produto.Quantidade)</td>
                                 <td class="text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>

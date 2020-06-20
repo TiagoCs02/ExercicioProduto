@@ -2,7 +2,7 @@
     background-color: #ff6914;
 }
 .validade{
-	width: 10px;
+	width: 100px;
 	text-align: center;
 }
 #donocard{
@@ -44,7 +44,7 @@
     margin-top: 5%;
     padding: 10px 15px;
     grid-area: foot;
-    position: relative;
+    position: absolute;
     bottom: 0px;
     height: 75px;
     width: 100%;
@@ -95,7 +95,7 @@
     color: #ff6914;
 }
 .botao {
-   margin-top: 14%;
+   margin-top: 144px;
 }
 .botao1{
     margin-top: 4%;

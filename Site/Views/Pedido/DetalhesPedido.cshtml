@@ -1,0 +1,77 @@
+﻿@model Models.Pedido
+@{
+    ViewData["Title"] = "DetalhesPedido";
+    Layout = "_Site";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/controle.css">
+    <title>Brasil Vinil - Detalhes do Pedido</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h4 style="color: #771ed2; margin-top: 50px;"> Pedido N° @Model.IdPedido</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Data</th>
+                            <th class="text-center" scope="col">Nº Nota</th>
+                            <th class="text-center" scope="col">Valor</th>
+                            <th class="text-center" scope="col">Qtd.</th>
+                            <th class="text-center" scope="col">Forma de Pagamento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            bool nf = false;
+                            <tr>
+                                <th scope="row">@Model.Data.ToShortDateString()</th>
+                                @foreach (Models.Movimentacao movimentacao in Model.Movimentacao)
+                                {
+                                    if (movimentacao.IdPedido == Model.IdPedido && !nf)
+                                    {
+                                        <td class="text-center">@movimentacao.Nf</td>
+                                        nf = true;
+                                    }
+                                }
+                                <td class="text-center">@Model.ValorTotal</td>
+                                <td class="text-center">@Model.Detalhepedido.Count Itens</td>
+                                <td class="text-center">Boleto</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <h4 style="color: #771ed2; margin-top: 50px;"> Detalhes do Pedido </h4>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Data</th>
+                            <th class="text-center" scope="col">Produto</th>
+                            <th class="text-center" scope="col">Quantidade</th>
+                            <th class="text-center" scope="col">Valor Unitário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (Models.Detalhepedido detalhe in Model.Detalhepedido)
+                            {
+                                <tr>
+                                    <td scope="row">@Model.Data.ToShortDateString()</td>
+                                    <td class="text-center">@detalhe.IdProdutoNavigation.Nome</td>
+                                    <td class="text-center">@detalhe.Quantidade</td>
+                                    <td class="text-center">R$@detalhe.IdProdutoNavigation.Valor</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+

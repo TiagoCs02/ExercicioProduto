@@ -28,6 +28,7 @@
                             <th class="text-center" scope="col">Valor</th>
                             <th class="text-center" scope="col">Qtd.</th>
                             <th class="text-center" scope="col">Forma de Pagamento</th>
+                            <th class="text-center" scope="col">Detalhes</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +49,11 @@
                                         <td class="text-center">@pedido.ValorTotal</td>
                                         <td class="text-center">@pedido.Detalhepedido.Count Itens</td>
                                         <td class="text-center">Boleto</td>
+                                        <td class="text-center">
+                                            <a asp-action="DetalhesPedido" asp-route-id="@pedido.IdPedido">
+                                                <i class="fa fa-info" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                     }
                                 }

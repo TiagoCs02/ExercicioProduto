@@ -35,6 +35,12 @@ namespace API.Controllers
             PedidoBL pedBl = new PedidoBL(_context);
             return pedBl.getPedidosVendaUsuario(id);
         }
+        [HttpGet("detalhes/{id}")]
+        public Pedido GetPedidoVenda(int id)
+        {
+            PedidoBL pedBl = new PedidoBL(_context);
+            return pedBl.getPedidoVenda(id);
+        }
 
         // POST: api/Pedido
         [HttpPost]

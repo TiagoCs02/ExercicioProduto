@@ -2,18 +2,6 @@
     background-color: #ff6914;
 }
 
-
-.footer {
-    grid-area:foot;
-	position: absolute;
-    bottom: 0px;
-    height: 45px;
-    width: 100%;
-    background-color: #ff6914;
-    color: white;
-    text-align: center;
- }
-
  .footer .row {
      margin-top: 20px;
  }
@@ -108,7 +96,7 @@
     margin-top: 5%;
     padding: 10px 15px;
     grid-area: foot;
-    position: relative;
+    position: absolute;
     bottom: 0px;
     height: 75px;
     width: 100%;

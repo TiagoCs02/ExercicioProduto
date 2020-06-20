@@ -28,6 +28,19 @@ namespace BL
             }
             return pedList;
         }
+        public Pedido getPedidoVenda(int id)
+        {
+            Pedido pedido = new Pedido();
+
+            if(id != 0)
+            {
+                pedido = _context.Pedido.Select(x => x).Where(p => p.Tipo == "Venda" && p.IdPedido == id).Include(p => p.Movimentacao).FirstOrDefault();
+                var detalhes = _context.Detalhepedido.Select(d => d).Where(d => d.IdPedido == id).Include(d => d.IdProdutoNavigation).ToList();
+                pedido.Detalhepedido = detalhes;
+
+            }
+            return pedido;
+        }
         public Pedido getPedidoUltimo()
         {
             Pedido ped = new Pedido();
