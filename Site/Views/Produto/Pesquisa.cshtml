@@ -1,18 +1,7 @@
 ﻿@model List<Models.Cadastroproduto>
 @{
-    ViewData["Title"] = "Categoria";
-    Layout = "_Site";
-
-    string categoria = "";
-
-    if (Model.Count != 0)
-    {
-        categoria = Model[0].Categoria;
-    }
-    else
-    {
-        categoria = "Não há produtos nessa categoria";
-    }
+    ViewData["Title"] = "Pesquisa";
+    Layout = "~/Views/Shared/_Site.cshtml";
 }
 
 <head>
@@ -21,16 +10,12 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center" id="titulo"><b>@categoria</b></h1>
+        <h1 class="text-center" id="titulo"><b>Nossos Discos</b></h1>
         <!--discos-->
-
-
-        @{ if (Model.Count != 0)
-           {
-                <div class="row">
-                    @foreach (Models.Cadastroproduto produto in Model)
-                     {
-                     <div class="col-md-6 col-lg-3 col-xs-12 div_produto ">
+        <div class="row">
+            @{ foreach (Models.Cadastroproduto produto in Model)
+                {
+                    <div class="col-md-6 col-lg-3 col-xs-12 div_produto ">
                         <a asp-controller="Produto" asp-action="Descricao" asp-route-id="@produto.IdProduto" style="color: black;">
                             <h4 class="text-center" style="color: #771ED2; ">@produto.Nome</h4>
                             <img src="~/img/@produto.Capa" class="rounded mx-auto d-block" width="220" alt="..." />
@@ -47,12 +32,9 @@
                                 <label>@produto.Descricao</label>
                             </div>
                         </a>
-                     </div>
-                     }
-                    
-                </div>
-           } }
+                    </div>
+                }
+            }
+        </div>
     </div>
-            
 </body>
-

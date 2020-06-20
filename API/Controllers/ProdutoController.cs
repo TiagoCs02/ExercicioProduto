@@ -41,6 +41,18 @@ namespace API.Controllers
             Cadastroproduto produto = prodBl.getProduto(id);
             return produto;
         }
+        [HttpGet("pesquisa")]
+        public List<Cadastroproduto> getPesquisa()
+        {
+            ProdutoBL prodBl = new ProdutoBL(_context);
+            return prodBl.getProdutos();
+        }
+        [HttpGet("pesquisa/{pesquisa}")]
+        public List<Cadastroproduto> getPesquisa(string pesquisa)
+        {
+            ProdutoBL prodBl = new ProdutoBL(_context);
+            return prodBl.getPesquisa(pesquisa);
+        }
 
         // POST: api/Produto
         [HttpPost]

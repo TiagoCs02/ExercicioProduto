@@ -159,5 +159,25 @@ namespace Site.Controllers
             return View(prodList);
         }
 
+        public async Task<IActionResult> PesquisaAsync([FromForm] Pesquisa pesquisa)
+        {
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+            ViewBag.Nome = HttpContext.Session.GetString("_Nome");
+
+            List<Cadastroproduto> prodList = new List<Cadastroproduto>();
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://localhost:44308/api/produto/pesquisa/" + pesquisa.pesq))
+                {
+
+                    string respostaAPI = await response.Content.ReadAsStringAsync();
+                    prodList = JsonConvert.DeserializeObject<List<Cadastroproduto>>(respostaAPI);
+
+                }
+            }
+            return View(prodList);
+        }
+
     }
 }

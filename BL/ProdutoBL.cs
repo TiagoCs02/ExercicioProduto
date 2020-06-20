@@ -105,5 +105,30 @@ namespace BL
         public void deleteProduto(int id)
         {
         }
+        public List<Cadastroproduto> getPesquisa(string pesquisa)
+        {
+            List<Cadastroproduto> prodList = new List<Cadastroproduto>();
+            if(pesquisa != "")
+            {
+                prodList = _context.Cadastroproduto.Select(p => p).Where(p => p.Nome.Contains(pesquisa)).Include(p => p.Estoque).ToList();
+            }
+            else
+            {
+                prodList = _context.Cadastroproduto.Select(p => p).Include(p => p.Estoque).ToList();
+            }
+            foreach (Cadastroproduto produto in prodList)
+            {
+                var estoque = produto.Estoque.OrderByDescending(e => e.Data).FirstOrDefault();
+                if (estoque.EstoqueAtual >= estoque.EstoqueMin)
+                {
+                    produto.valEstoque = 1;
+                }
+                else
+                {
+                    produto.valEstoque = 0;
+                }
+            }
+            return prodList;
+        }
     }
 }
