@@ -53,23 +53,26 @@
 
                         <div style="display: inline-block;">
                             <label><b>Validade:</b></label><br>
-                            <input type="text" class="form-control form-control-sm validade" name="validade"  placeholder="MM/AA" maxlength="5">
+                            <input type="text" class="form-control form-control-sm validade" name="validade" placeholder="MM/AA" maxlength="5">
                         </div>
                         <Br>
                         <div style="display: inline-block;">
                             <label><b>CVC:</b></label>
                             <input type="text" class="form-control form-control-sm" name="SegCode" placeholder="Código de Segurança">
                         </div>
+                        <div class="botao1">
+                            <input type="submit" class="btn btn-secondary btn-lg btn-block" value="Continuar">
+                        </div>
                     </div>
                 </form>
                 <form name="pagamento" asp-action="GuardaForma" method="post">
                     <div id="bolet">
                         <label><b>Nome:</b></label><br>
-                        <input type="text" class="form-control form-control-sm" name="Nome" placeholder="Seu Nome"><br>
+                        <input type="text" class="form-control form-control-sm" name="Nome" placeholder="Seu Nome" required><br>
                         <label><b>Sobrenome:</b></label><br>
-                        <input type="text" class="form-control form-control-sm" name="Sobrenome" placeholder="Sobrenome"><br>
+                        <input type="text" class="form-control form-control-sm" name="Sobrenome" placeholder="Sobrenome" required><br>
                         <label><b>CPF:</b></label><br>
-                        <input type="text" name="CPF" class="form-control form-control-sm" placeholder="Ex.: 00.000.000-0" maxlength="12"><br>
+                        <input type="text" name="CPF" class="form-control form-control-sm" placeholder="Ex.: 00.000.000-0" maxlength="12" required><br>
                         <div class="botao1">
                             <input type="submit" class="btn btn-secondary btn-lg btn-block" value="Continuar">
                         </div>

@@ -16,7 +16,15 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/css/produtos.css">
+    @{ if (Model.Count > 4)
+        {
+            <link rel="stylesheet" href="~/css/produtosAlt.css">
+        }
+        else
+        {
+            <link rel="stylesheet" href="~/css/produtos.css">
+        }
+    }
     <title>Brasil Vinil - Produtos</title>
 </head>
 <body>

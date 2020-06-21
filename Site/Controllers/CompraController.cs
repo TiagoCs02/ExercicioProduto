@@ -75,6 +75,22 @@ namespace Site.Controllers
             return View(usuario);
         }
 
+        public IActionResult NovoEndereco([FromForm]Endereco novoEndereco)
+        {
+            Endereco endereco = new Endereco
+            {
+                Logradouro = novoEndereco.Logradouro,
+                Numero = novoEndereco.Numero,
+                Cep = novoEndereco.Cep,
+                Cidade = novoEndereco.Cidade,
+                Uf = novoEndereco.Uf
+            };
+            string enderecoJson = JsonConvert.SerializeObject(endereco);
+            HttpContext.Session.SetString("_Endereco", enderecoJson);
+
+            return RedirectToAction("FormDePag", "Compra");
+        }
+
         public async Task<IActionResult> ConfirmacaoAsync()
         {
             ViewBag.Login = HttpContext.Session.GetInt32("_Login");

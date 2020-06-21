@@ -119,6 +119,27 @@ namespace Site.Controllers
             return RedirectToAction("Carrinho", "Compra");
         }
 
+        public IActionResult TiraCarrinho(int id)
+        {
+            List<Carrinho> CarrinhoList = new List<Carrinho>();
+            List<Carrinho> CarrinhoListNew = new List<Carrinho>();
+            string recebe = HttpContext.Session.GetString("_Carrinho");
+            CarrinhoList = JsonConvert.DeserializeObject<List<Carrinho>>(recebe);
+
+            foreach (Carrinho carrinho in CarrinhoList)
+            {
+                if (carrinho.IdProduto != id)
+                {
+                    CarrinhoListNew.Add(carrinho);
+                }
+            }
+            string envio = JsonConvert.SerializeObject(CarrinhoListNew);
+
+            HttpContext.Session.SetString("_Carrinho", envio);
+
+            return RedirectToAction("Carrinho", "Compra");
+        }
+
         public async Task<IActionResult> ProdutosAsync()
         {
             ViewBag.Login = HttpContext.Session.GetInt32("_Login");

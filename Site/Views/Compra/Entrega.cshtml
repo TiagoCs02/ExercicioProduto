@@ -9,6 +9,11 @@
     <head>
         <link rel="stylesheet" href="~/css/entrega.css">
         <title>Brasil Vinil - Entrega</title>
+        <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+        <script src="https://kit.fontawesome.com/4fc6104bc0.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="container">
@@ -18,27 +23,76 @@
                 Meu Endereço
             </h4>
             <div class="row">
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-8 col-xs-12">
+                    <input type="radio" name="endereco" id="antigo" checked />
+                    <label style="font-weight: bold;">Endereço atual:</label><br>
                     <label style="font-weight: bold;">Logradrouro:</label> @Model.Logradouro<br>
                     <label style="font-weight: bold;">Nº</label> @Model.Numero<br>
                     <label style="font-weight: bold;">CEP:</label> @Model.Cep<br>
                     <label style="font-weight: bold;">Cidade:</label> @Model.Cidade<br>
-                    <label style="font-weight: bold;">Estado:</label> @Model.Uf<br>          
+                    <label style="font-weight: bold;">Estado:</label> @Model.Uf<br><br>
+                    <input type="radio" name="endereco" id="new" />
+                    <label style="font-weight: bold;">Novo Endereço</label>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <form name="endereco" asp-controller="Compra" asp-action="NovoEndereco">
+                        <div id="novo">
+                            <label><b>Logradouro:</b></label><br>
+                            <input type="text" class="form-control form-control-sm" name="Logradouro" placeholder="Rua xxxxx"><br>
+                            <label><b>Nº:</b></label><br>
+                            <input type="text" class="form-control form-control-sm" name="Numero" placeholder="Nº 0"><br>
+                            <label><b>CEP:</b></label><br>
+                            <input type="text" name="Cep" class="form-control form-control-sm" placeholder="Ex.: 00000-000" maxlength="8"><br>
+                            <label><b>Cidade:</b></label><br>
+                            <input type="text" class="form-control form-control-sm" name="Cidade" placeholder="Santo André"><br>
+                            <label><b>Estado:</b></label><br>
+                            <select name="Uf" class="form-control form-control-sm">
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                            <div class="col-md-7 col-xs-12 botao1">
+                                <a asp-action="FormDePag">
+                                    <input type="submit" class="btn btn-secondary btn-lg btn-block" value="Continuar" />
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </form>
                 </div>
             </div>
-                            
+
 
             <div class="row botao">
                 <div class="col-md-8 col-xs-12">
                 </div>
 
-                <!--<div class="col-md-2 col-xs-12 botao1">
-                    <a href="cadusuario.html">
-                        <button type="button" class="btn btn-primary btn-lg btn-block"><b>Novo Endereço</b></button>
-                    </a>
-                </div>-->
 
-                <div class="col-md-2 col-xs-12 botao1">
+                <div class="col-md-2 col-xs-12" id="old">
                     <a asp-action="FormDePag">
                         <button type="button" class="btn btn-secondary btn-lg btn-block"><b>Continuar</b></button>
                     </a>
@@ -46,6 +100,17 @@
 
             </div>
         </div>
+        <script>
+        $("#antigo").on("click", function () {
+            $("#novo").css("display", "none"),$("#old").css("display", "block")
+        });
+        $("#new").on("click", function () {
+            $("#old").css("display", "none")
+        });
+        $("#new").on("click", function () {
+            $("#novo").css("display", "block")
+        });
+        </script>
     </body>
 </html>
 

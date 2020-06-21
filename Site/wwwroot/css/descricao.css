@@ -96,7 +96,7 @@
     margin-top: 5%;
     padding: 10px 15px;
     grid-area: foot;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     height: 75px;
     width: 100%;
