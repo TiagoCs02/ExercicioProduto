@@ -196,5 +196,35 @@ namespace Site.Controllers
                 }
             }
         }
+        public async Task<IActionResult> BoletoAsync()
+        {
+            ViewBag.Login = HttpContext.Session.GetInt32("_Login");
+            ViewBag.Nome = HttpContext.Session.GetString("_Nome");
+            string recebe = HttpContext.Session.GetString("_Carrinho");
+            ViewBag.Endereco = HttpContext.Session.GetString("_Endereco");
+            ViewBag.Dados = HttpContext.Session.GetString("_Dados");
+
+            decimal? valor = 0;
+
+            List<Carrinho> CarrinhoList = JsonConvert.DeserializeObject<List<Carrinho>>(recebe);
+
+            using (var httpClient = new HttpClient())
+            {
+                foreach (Carrinho carrinho in CarrinhoList)
+                {
+                    Cadastroproduto produto = new Cadastroproduto();
+                    using (var response = await httpClient.GetAsync("https://localhost:44308/api/produto/" + carrinho.IdProduto.ToString()))
+                    {
+                        string respostaAPI = await response.Content.ReadAsStringAsync();
+                        produto = JsonConvert.DeserializeObject<Cadastroproduto>(respostaAPI);
+                        valor += produto.Valor;
+                    }
+                }
+            }
+
+            valor += 10;
+
+            return View(valor);
+        }
     }
 }
