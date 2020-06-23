@@ -217,7 +217,8 @@ namespace Site.Controllers
                     {
                         string respostaAPI = await response.Content.ReadAsStringAsync();
                         produto = JsonConvert.DeserializeObject<Cadastroproduto>(respostaAPI);
-                        valor += produto.Valor;
+                        produto.Quantidade = carrinho.Quantidade;
+                        valor += (produto.Valor * produto.Quantidade);
                     }
                 }
             }
